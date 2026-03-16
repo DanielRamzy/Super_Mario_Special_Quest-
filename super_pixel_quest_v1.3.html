@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Mario Special Quest</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABOElEQVR4nGN0zHz4nwELmL1VHpsw2SDV+yFWcSaq2kIGGHUAIywNUDvOCQFYmhjwEBh1AIv4SUjcK69oY2BgYGCIzKnCq2H5lDa88sTqF8+B2DvwIYAuAPehZSV2Hcfb8Rq4/CzWghWnvoEPgZfmsDJ6KVYFjIyMDAwMDAxyAQsYGBgYGB6WEWcwIX0wewc+BAgpgPmAVECsvgEPAXhdMFE5H6sCXSszogy6fOwUVn3o4jCQf3ciAwPDIAgBjDTQtmwDqgA6HwqqogKoom/whQCxAMPHZIIBDwGCLSIHo30o/APnnPAaSKz6QdMiIjkNoPuQUjDgIUCyAx43OTE8bsKMV1ziVHcAtQE8DeDquzE8v0uRBTjNhYIBDwFG9N7x+ZMLidLII2eDwv/y6AhR+gzN41H4Ax4CAJrZXj/qlangAAAAAElFTkSuQmCC">
+  <link rel="icon" type="image/png" sizes="256x256" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAEgUlEQVR4nO3dIY9cVRiAYYaMxFfRFdUIEDQQBItdUwsGtWKSJnUkrUAgim6CWwMCisSsJQgCKQkg0BUXBMHjh99AziRfJu/z+HPPlzk7b465s7vLw3Z85Yzd3F5Mj0DY9dU2PcKSV6cHAOYIAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAITtLg/bceUBN7cXp5oF+J+ur7al9W4AECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAELa/8+Ji6QH3vn26tP7Dh0+W1p+751+sfX7nzvmvnf+dh2vfXzcACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACNtPD7D8Pvw7j08zyJSfP5+eYNTzX4/TI6w58/NzA4AwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYCw/T/3t8VHfH2SQabsdrul9XcffLm0fvtkaXle/fxWv79uABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABC2nx5g2ur74MxyfmvcACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBsd3nYjisPeHbv0almGfHGu29Pj3DW/vjpl9H9V89vev5Vj14+W1rvBgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBh++kBnn7z3ewA0/svevLRg9H9nd+a6fNzA4AwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYCw8d8DYM34+/icNTcACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACNtdHrbjygNubi9ONcuI99/6fnT/H377YHT/aT7/NddX29J6NwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAI208PUDf9PjxtbgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQ5vcAhv312dr/p3/909nfEzj3+evcACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBs+fcArq+2U8wx5++X0xMw6Oz/fhe5AUCYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAEDY7vKwHScH+P3FV5Pbn73X7r43uv+/f/44uv+5e/P+x6P7uwFAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABA2H8pHF9lFgr08AAAAABJRU5ErkJggg==">
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAEgUlEQVR4nO3dIY9cVRiAYYaMxFfRFdUIEDQQBItdUwsGtWKSJnUkrUAgim6CWwMCisSsJQgCKQkg0BUXBMHjh99AziRfJu/z+HPPlzk7b465s7vLw3Z85Yzd3F5Mj0DY9dU2PcKSV6cHAOYIAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAITtLg/bceUBN7cXp5oF+J+ur7al9W4AECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAELa/8+Ji6QH3vn26tP7Dh0+W1p+751+sfX7nzvmvnf+dh2vfXzcACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACNtPD7D8Pvw7j08zyJSfP5+eYNTzX4/TI6w58/NzA4AwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYCw/T/3t8VHfH2SQabsdrul9XcffLm0fvtkaXle/fxWv79uABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABC2nx5g2ur74MxyfmvcACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBsd3nYjisPeHbv0almGfHGu29Pj3DW/vjpl9H9V89vev5Vj14+W1rvBgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBh++kBnn7z3ewA0/svevLRg9H9nd+a6fNzA4AwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYAwAYCw8d8DYM34+/icNTcACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACNtdHrbjygNubi9ONcuI99/6fnT/H377YHT/aT7/NddX29J6NwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAI208PUDf9PjxtbgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQJgAQ5vcAhv312dr/p3/909nfEzj3+evcACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBs+fcArq+2U8wx5++X0xMw6Oz/fhe5AUCYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAEDY7vKwHScH+P3FV5Pbn73X7r43uv+/f/44uv+5e/P+x6P7uwFAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABA2H8pHF9lFgr08AAAAABJRU5ErkJggg==">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    overflow: hidden;
+    user-select: none;
+  }
+  #game-wrap {
+    display: flex;
+    flex-direction: column;
+    /* canvas(480) + hud(36) + controls(28) = 544 total. ratio = 832/544 = 1.529 */
+    width: min(100vw, calc(100vh * 1.529));
+    flex-shrink: 0;
+  }
+  #hud {
+    background: #111;
+    color: #fff;
+    display: flex;
+    gap: 0;
+    padding: 0 8px;
+    font-size: 11px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid #444;
+    border-bottom: none;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+    height: 36px;
+  }
+  #hud span { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  #hud .label { color: #aaa; font-size: 8px; }
+  #hud .val { color: #fff; font-size: 11px; }
+  canvas {
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    border: 2px solid #444;
+    border-top: none;
+    border-bottom: none;
+    width: 100%;
+    aspect-ratio: 832 / 480;
+  }
+  #controls {
+    background: #111;
+    color: #666;
+    font-size: 7px;
+    padding: 0 4px;
+    width: 100%;
+    text-align: center;
+    border: 2px solid #444;
+    border-top: 1px solid #333;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+</head>
+<body>
+<div id="game-wrap">
+  <div id="hud">
+    <span><div class="label">SCORE</div><div class="val" id="hScore">000000</div></span>
+    <span><div class="label">COINS</div><div class="val" id="hCoins">×00</div></span>
+    <span><div class="label">WORLD</div><div class="val" id="hWorld">1-1</div></span>
+    <span><div class="label">TIME</div><div class="val" id="hTime">400</div></span>
+    <span><div class="label">LIVES</div><div class="val" id="hLives">♥ 3</div></span>
+  </div>
+  <canvas id="game" width="832" height="480"></canvas>
+  <div id="controls">← → MOVE &nbsp;|&nbsp; Z / SPACE JUMP &nbsp;|&nbsp; X / SHIFT RUN &nbsp;|&nbsp; ENTER START</div>
+</div>
+<script>
+// ═══════════════════════════════════════════════════════
+//  SUPER MARIO SPECIAL QUEST — Full 5-Level Mario Platformer
+// ═══════════════════════════════════════════════════════
+
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+const CW = 832, CH = 480, T = 32;
+
+// ─── AUDIO ─────────────────────────────────────────────
+let AC = null;
+function ensureAudio() { if (!AC) AC = new (window.AudioContext||window.webkitAudioContext)(); }
+
+function playNote(freq, type='square', dur=0.15, vol=0.25, freqEnd=null) {
+  if (!AC) return;
+  const osc = AC.createOscillator(), g = AC.createGain();
+  osc.connect(g); g.connect(AC.destination);
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, AC.currentTime);
+  if (freqEnd) osc.frequency.linearRampToValueAtTime(freqEnd, AC.currentTime + dur);
+  g.gain.setValueAtTime(vol, AC.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + dur);
+  osc.start(); osc.stop(AC.currentTime + dur);
+}
+
+function sfx(s) {
+  if (!AC) return;
+  const n = (f,t,d,v,fe) => playNote(f,t,d,v,fe);
+  switch(s) {
+    case 'jump':    n(380,'square',0.12,0.3,520); break;
+    case 'coin':    n(1050,'square',0.05,0.2); setTimeout(()=>n(1400,'square',0.1,0.15),60); break;
+    case 'stomp':   n(180,'square',0.08,0.3,80); break;
+    case 'bump':    n(220,'square',0.06,0.2); break;
+    case 'break':   n(350,'square',0.06,0.25,100); setTimeout(()=>n(200,'square',0.08,0.2,80),60); break;
+    case 'die':     [440,415,392,370,349,330,311,294].forEach((f,i)=>setTimeout(()=>n(f,'square',0.08,0.25),i*60)); break;
+    case 'powerup': [262,294,330,349,392,440,494,523].forEach((f,i)=>setTimeout(()=>n(f,'square',0.07,0.25),i*55)); break;
+    case 'clear':   [523,523,523,392,523,659,784,523].forEach((f,i)=>setTimeout(()=>n(f,'square',0.12,0.3),i*120)); break;
+    case 'bigdie':  [220,196,174,155,130].forEach((f,i)=>setTimeout(()=>n(f,'sawtooth',0.1,0.3),i*80)); break;
+    case 'enter':   n(523,'square',0.1,0.2); setTimeout(()=>n(659,'square',0.1,0.2),120); setTimeout(()=>n(784,'square',0.2,0.25),240); break;
+    case 'flagpole':
+      [784,740,698,659,622,587,554,523].forEach((f,i)=>setTimeout(()=>n(f,'square',0.09,0.2),i*70));
+      break;
+    case 'gameover':
+      [392,370,349,330,311,294,277,262].forEach((f,i)=>setTimeout(()=>n(f,'square',0.12,0.3),i*90));
+      break;
+  }
+}
+
+// ─── BACKGROUND MUSIC ──────────────────────────────────
+let bgmIdx = 0, bgmTimer = 0;
+
+const N = (n,o=4) => 440*Math.pow(2,(n-9)/12+o-4);
+const C=0,Cs=1,D=2,Ds=3,E=4,F=5,Fs=6,G=7,Gs=8,A=9,As=10,B=11;
+
+// 180 BPM — same energy as SMB overworld
+const s =0.083;  // sixteenth
+const e =0.167;  // eighth
+const eq=0.250;  // dotted eighth
+const q =0.333;  // quarter
+const qd=0.500;  // dotted quarter
+const h =0.667;  // half
+
+// ══════════════════════════════════════════════════════
+// OVERWORLD — "Pixel Dash"  ~20s loop
+// Same rhythmic DNA as SMB overworld: syncopated opener,
+// big octave leap, flowing melody, bright major key (C major)
+// ══════════════════════════════════════════════════════
+const bgmOverworld = [
+
+  // ── SIGNATURE OPENER (same syncopated feel as SMB) ──
+  [N(G,5),e],[N(G,5),e],[0,e],[N(G,5),e],
+  [0,e],[N(Ds,5),e],[N(G,5),q],
+  // octave anchor
+  [N(D,6),q],[0,q],[N(D,5),q],[0,q],
+
+  // ── MAIN MELODY PHRASE (flowing, like SMB phrase 1) ──
+  // bar 3 — step down from G
+  [N(G,5),qd],[N(D,5),e],[0,e],
+  [N(B,4),qd],[N(E,5),q],
+  // bar 4 — arching answer
+  [N(Fs,5),q],[N(F,5),e],[N(E,5),q],
+  [N(Ds,5),e],[N(G,5),e],[N(D,6),e],[N(E,6),e],
+  // bar 5 — descend with grace note feel
+  [N(C,6),e],[N(D,6),e],[0,e],[N(B,5),q],
+  [N(G,5),e],[N(A,5),e],[N(Fs,5),qd],
+  // bar 6 — resolution back to root
+  [0,e],[N(D,5),e],[N(G,5),e],[N(B,5),e],
+  [N(D,6),e],[N(E,6),e],[N(D,6),e],[0,e],
+
+  // ── TRANSITION FILL ──
+  [N(B,5),e],[N(G,5),e],[N(D,5),e],[N(B,4),e],
+  [N(G,4),e],[0,e],
+
+  // ── VARIATION PHRASE (SMB "underground" style lift) ──
+  // bar 8 — short punchy motif
+  [N(G,5),s],[0,s],[N(G,5),s],[0,s],[N(G,5),e],[N(A,5),e],
+  // bar 9 — step up sequence
+  [N(B,5),e],[N(G,5),q],[N(E,5),e],[N(D,5),q],
+  // bar 10 — rising call
+  [N(G,5),e],[N(A,5),s],[N(G,5),s],[N(Fs,5),e],[N(F,5),e],
+  // bar 11 — answer, settle
+  [N(E,5),e],[N(D,5),s],[N(C,5),s],[N(B,4),e],[N(A,4),e],
+
+  // ── BIG FINISH RUN (SMB chromatic staircase feel) ──
+  [N(G,4),s],[N(A,4),s],[N(B,4),s],[N(C,5),s],
+  [N(D,5),s],[N(E,5),s],[N(Fs,5),s],[N(G,5),s],
+  [N(A,5),s],[N(B,5),s],[N(C,6),s],[N(D,6),s],
+  // peak + resolve
+  [N(G,6),q],[N(D,6),e],[N(B,5),e],
+  [N(G,5),q],[0,q],
+];
+
+// ══════════════════════════════════════════════════════
+// BOSS THEME — "Castle Gates"  ~20s loop
+// Inspired by SMB castle/boss: minor, driving, ominous
+// Am key. Heavy pulse, chromatic menace, urgent rhythm
+// ══════════════════════════════════════════════════════
+const bgmBoss = [
+
+  // ── BASS OSTINATO (SMB castle heartbeat feel) ──
+  [N(A,2),e],[N(A,2),e],[N(A,2),e],[N(A,2),e],
+  [N(A,2),e],[N(A,2),e],[N(B,2),e],[N(C,3),e],
+
+  // ── DARK MELODY (chromatic SMB castle melody feel) ──
+  // bar 3 — sinister opening motif
+  [N(A,4),q],[N(G,4),s],[N(Fs,4),s],[N(G,4),q],
+  // bar 4 — chromatic descent (SMB castle DNA)
+  [N(F,4),e],[N(E,4),s],[N(Ds,4),s],[N(E,4),q],
+  // bar 5 — lower, darker
+  [N(D,4),e],[N(C,4),s],[N(B,3),s],[N(C,4),q],
+  // bar 6 — bottoms out
+  [N(A,3),h],
+
+  // ── TENSION BUILD (staccato urgency) ──
+  [N(A,3),s],[0,s],[N(A,3),s],[0,s],
+  [N(C,4),s],[0,s],[N(E,4),s],[0,s],
+  [N(A,4),s],[0,s],[N(C,5),s],[0,s],
+  [N(E,5),s],[0,s],[N(A,5),s],[0,s],
+
+  // ── MENACE PHRASE ──
+  // bar 9 — sharp rhythmic stabs
+  [N(A,5),s],[N(G,5),s],[N(F,5),s],[N(E,5),s],[N(D,5),e],[N(C,5),e],
+  // bar 10
+  [N(B,4),e],[N(C,5),s],[N(B,4),s],[N(As,4),e],[N(A,4),e],
+  // bar 11 — ratcheting climb
+  [N(E,4),s],[N(F,4),s],[N(Fs,4),s],[N(G,4),s],
+  [N(Gs,4),s],[N(A,4),s],[N(As,4),s],[N(B,4),s],
+  // bar 12 — peak crash
+  [N(C,5),e],[N(B,4),e],[N(A,4),e],[N(G,4),e],
+
+  // ── RESET + LOOP ──
+  [N(A,2),e],[N(A,2),e],[N(E,3),e],[N(A,3),e],
+  [N(A,4),q],[0,e],[N(E,4),s],[N(A,3),s],
+  [N(A,2),e],[0,h],
+];
+
+function currentBGM() {
+  return game.level === 4 ? bgmBoss : bgmOverworld;
+}
+
+function updateBGM(dt) {
+  if (!AC || !game.bgmActive) return;
+  bgmTimer -= dt;
+  if (bgmTimer <= 0) {
+    const melody = currentBGM();
+    const [freq, dur] = melody[bgmIdx % melody.length];
+    if (freq > 0) {
+      const isBoss = game.level === 4;
+      playNote(freq, isBoss ? 'sawtooth' : 'square', dur * 0.82, isBoss ? 0.07 : 0.09);
+      if (isBoss && bgmIdx % 8 === 0) playNote(N(A,1), 'square', dur * 0.4, 0.05);
+    }
+    bgmTimer = dur * 1000;
+    bgmIdx++;
+  }
+}
+// ─── INPUT ─────────────────────────────────────────────
+const keys = {};
+const keysJustPressed = {};
+document.addEventListener('keydown', e => {
+  if (!keys[e.code]) keysJustPressed[e.code] = true;
+  keys[e.code] = true;
+  if (['Space','ArrowLeft','ArrowRight','ArrowUp'].includes(e.code)) e.preventDefault();
+  if (e.code === 'Space' || e.code === 'ArrowLeft' || e.code === 'ArrowRight' || e.code === 'ArrowUp') e.preventDefault();
+});
+document.addEventListener('keyup', e => { keys[e.code] = false; });
+function clearJustPressed() { for (let k in keysJustPressed) delete keysJustPressed[k]; }
+
+const isDown   = c => !!keys[c];
+const isJust   = c => !!keysJustPressed[c];
+const LEFT     = () => isDown('ArrowLeft')  || isDown('KeyA');
+const RIGHT    = () => isDown('ArrowRight') || isDown('KeyD');
+const JUMP     = () => isJust('ArrowUp')    || isJust('KeyZ')  || isJust('Space');
+const JUMP_H   = () => isDown('ArrowUp')    || isDown('KeyZ')  || isDown('Space');
+const RUN      = () => isDown('ShiftLeft')  || isDown('ShiftRight') || isDown('KeyX');
+const START_K  = () => isJust('Enter');
+
+// ─── TILE CONSTANTS ────────────────────────────────────
+const AIR=0, GND=1, BRICK=2, QBLK=3, QUSE=4,
+      PIPE_T=5, PIPE_B=6, COIN_T=7, FLAGP=8,
+      HARD=9, LAVA=10, ICE=11, CASTLE=12, DIRT=13,
+      STAIR=14, CLOUD_S=15, GATE=16;
+
+function solid(t) { return t===GND||t===BRICK||t===QBLK||t===QUSE||t===PIPE_T||t===PIPE_B||t===HARD||t===ICE||t===CASTLE||t===DIRT||t===STAIR||t===CLOUD_S||t===GATE; }
+function deadly(t) { return t===LAVA; }
+function bouncy(t) { return t===BRICK||t===QBLK; }
+
+// ─── THEMES ────────────────────────────────────────────
+const THEMES = [
+  { skyA:'#4A90D9', skyB:'#87CEEB', gndTop:'#58A000', gndBody:'#7B4C1E', brick:'#D44000', brickD:'#A83000', qblk:'#E0A000', qblkD:'#B07800', pipe:'#2E9600', pipeD:'#1A6400', hard:'#C8C8C8', hardD:'#888', castle:'#888', snow:false, lava:false, name:'World 1-1', slip:1 },
+  { skyA:'#0A0A18', skyB:'#121230', gndTop:'#666', gndBody:'#333', brick:'#7B4C1E', brickD:'#4A2800', qblk:'#E0A000', qblkD:'#B07800', pipe:'#2E9600', pipeD:'#1A6400', hard:'#555', hardD:'#333', castle:'#444', snow:false, lava:false, name:'World 1-2', slip:1 },
+  { skyA:'#FFB300', skyB:'#FFD54F', gndTop:'#FFC107', gndBody:'#E65100', brick:'#BF360C', brickD:'#870000', qblk:'#FFF176', qblkD:'#F9A825', pipe:'#558B2F', pipeD:'#33691E', hard:'#BCAAA4', hardD:'#8D6E63', castle:'#A1887F', snow:false, lava:false, name:'World 2-1', slip:1 },
+  { skyA:'#B3E5FC', skyB:'#E1F5FE', gndTop:'#E8F5E9', gndBody:'#90CAF9', brick:'#29B6F6', brickD:'#0277BD', qblk:'#E0A000', qblkD:'#B07800', pipe:'#4DD0E1', pipeD:'#0097A7', hard:'#CFE8FF', hardD:'#90CAF9', castle:'#B3E5FC', snow:true, lava:false, name:'World 3-1', slip:0.985 },
+  { skyA:'#1A0000', skyB:'#2D0000', gndTop:'#5D4037', gndBody:'#3E2723', brick:'#424242', brickD:'#212121', qblk:'#E0A000', qblkD:'#B07800', pipe:'#D32F2F', pipeD:'#B71C1C', hard:'#616161', hardD:'#424242', castle:'#444', snow:false, lava:true, name:'World 4-1', slip:1 },
+];
+
+// ─── LEVEL BUILDER HELPERS ─────────────────────────────
+function mkMap(w, h=15) { return Array.from({length:h}, ()=>new Array(w).fill(AIR)); }
+function hLine(m,r,x0,x1,t) { for(let x=x0;x<=x1;x++) if(r>=0&&r<m.length&&x>=0&&x<m[0].length) m[r][x]=t; }
+function vLine(m,c,y0,y1,t) { for(let y=y0;y<=y1;y++) if(y>=0&&y<m.length&&c>=0&&c<m[0].length) m[y][c]=t; }
+function set(m,r,c,t) { if(r>=0&&r<m.length&&c>=0&&c<m[0].length) m[r][c]=t; }
+
+// ─── LEVEL DEFINITIONS ─────────────────────────────────
+
+function buildLevel(idx) {
+  switch(idx) {
+    case 0: return level1();
+    case 1: return level2();
+    case 2: return level3();
+    case 3: return level4();
+    case 4: return level5();
+  }
+}
+
+function level1() {
+  const W=210, map=mkMap(W);
+  vLine(map,W-1,0,14,HARD); // right boundary wall
+  // Ground
+  hLine(map,13,0,W-1,GND); hLine(map,14,0,W-1,DIRT);
+  // Remove ground for pit
+  hLine(map,13,61,65,AIR); hLine(map,14,61,65,AIR);
+  hLine(map,13,94,98,AIR); hLine(map,14,94,98,AIR);
+  hLine(map,13,131,135,AIR); hLine(map,14,131,135,AIR);
+
+  // Question blocks early
+  set(map,9,16,QBLK); set(map,9,20,QBLK); set(map,9,21,BRICK); set(map,9,22,QBLK); set(map,9,23,BRICK); set(map,9,24,QBLK);
+
+  // Pipe 1 (height 2)
+  set(map,12,28,PIPE_T); set(map,13,28,PIPE_B);
+
+  // Restore ground around pipes
+  set(map,13,27,GND); set(map,13,30,GND);
+
+  // Pipe 2 (height 3)
+  set(map,11,40,PIPE_T); set(map,12,40,PIPE_B); set(map,13,40,PIPE_B);
+
+  // Floating bricks with coins
+  hLine(map,8,50,54,BRICK); set(map,8,51,QBLK); set(map,8,53,QBLK);
+  // Coins above
+  set(map,7,55,COIN_T); set(map,7,56,COIN_T); set(map,7,57,COIN_T);
+
+  // Stair step UP
+  for(let i=0;i<4;i++) hLine(map,13-i,58+i,58+i,HARD);
+
+  // Jump platform + blocks
+  hLine(map,9,72,78,BRICK); set(map,9,73,QBLK); set(map,9,76,QBLK);
+
+  // More coins
+  set(map,7,84,COIN_T); set(map,7,85,COIN_T); set(map,7,86,COIN_T); set(map,7,87,COIN_T);
+
+  // Pipe 3
+  set(map,11,90,PIPE_T); set(map,12,90,PIPE_B); set(map,13,90,PIPE_B);
+
+  // Multi-question blocks
+  hLine(map,8,104,108,QBLK);
+
+  // Step staircase
+  for(let i=0;i<5;i++) hLine(map,13-i,112+i,112+i,HARD);
+  // Step staircase down
+  for(let i=0;i<5;i++) hLine(map,13,116+i,116+i,HARD);
+
+  // Elevated section
+  hLine(map,9,120,129,BRICK); set(map,9,122,QBLK); set(map,9,125,QBLK); set(map,9,128,QBLK);
+
+  // Pipe 4 (tall)
+  set(map,10,140,PIPE_T); vLine(map,140,11,13,PIPE_B);
+
+  // Final staircase (steps to castle)
+  for(let i=0;i<8;i++) {
+    for(let j=0;j<=i;j++) set(map,13-j,175+i,STAIR);
+  }
+  // Reverse staircase
+  for(let i=0;i<8;i++) {
+    for(let j=0;j<=7-i;j++) set(map,13-j,183+i,STAIR);
+  }
+
+  // Flag pole
+  vLine(map,197,4,13,FLAGP);
+
+  // Enemies
+  const enemies = [
+    {type:'goomba',col:15,row:13},{type:'goomba',col:19,row:13},
+    {type:'goomba',col:35,row:13},{type:'goomba',col:50,row:13},
+    {type:'goomba',col:68,row:13},{type:'goomba',col:69,row:13},
+    {type:'koopa',col:82,row:13},{type:'goomba',col:100,row:13},
+    {type:'goomba',col:101,row:13},{type:'koopa',col:118,row:13},
+    {type:'goomba',col:155,row:13},{type:'goomba',col:160,row:13},
+  ];
+
+  return {map, enemies, theme:0, width:W, qContents:buildQContents(map, [
+    {row:9,col:16,type:'mushroom'}, {row:9,col:22,type:'coin'}, {row:9,col:24,type:'coin'},
+    {row:8,col:51,type:'coin'}, {row:8,col:53,type:'coin'},
+    {row:9,col:73,type:'coin'}, {row:9,col:76,type:'mushroom'},
+    {row:8,col:104,type:'coin'}, {row:8,col:105,type:'coin'}, {row:8,col:106,type:'mushroom'},
+    {row:9,col:122,type:'coin'}, {row:9,col:125,type:'coin'}, {row:9,col:128,type:'coin'},
+  ])};
+}
+
+function level2() {
+  const W=200, map=mkMap(W);
+  hLine(map,13,0,W-1,GND); hLine(map,14,0,W-1,DIRT);
+  vLine(map,W-1,0,14,HARD); // right boundary wall
+  // Cave ceiling
+  hLine(map,0,0,W-1,HARD); hLine(map,1,0,W-1,HARD);
+
+  // Gaps — each exactly 3 tiles wide with flat run-up on both sides
+  hLine(map,13,30,34,AIR); hLine(map,14,30,34,AIR);   // Gap 1: 3 tiles, run-up at 27-30
+  hLine(map,13,61,65,AIR); hLine(map,14,61,65,AIR);   // Gap 2: 3 tiles, run-up at 58-61
+  hLine(map,13,101,105,AIR); hLine(map,14,101,105,AIR); // Gap 3: 3 tiles, run-up at 98-101
+  hLine(map,13,141,145,AIR); hLine(map,14,141,145,AIR); // Gap 4: 3 tiles, run-up at 138-141
+
+  // Platforms (elevated)
+  hLine(map,8,10,18,BRICK); set(map,8,12,QBLK); set(map,8,15,QBLK);
+  hLine(map,6,25,28,BRICK); set(map,6,27,QBLK);
+  hLine(map,9,38,50,BRICK); set(map,9,40,QBLK); set(map,9,43,QBLK); set(map,9,46,QBLK);
+  hLine(map,7,55,59,BRICK); hLine(map,7,67,68,BRICK); // split around gap at 62-64
+
+  // Coin chains
+  hLine(map,5,15,20,COIN_T); hLine(map,5,70,78,COIN_T); hLine(map,11,108,115,COIN_T);
+
+  // Pipes going up to ceiling
+  set(map,2,45,PIPE_T); vLine(map,45,3,5,PIPE_B);
+  set(map,2,90,PIPE_T); vLine(map,90,3,5,PIPE_B);
+  set(map,2,130,PIPE_T); vLine(map,130,3,5,PIPE_B);
+
+  // More platforms
+  hLine(map,10,72,82,BRICK); set(map,10,75,QBLK); set(map,10,79,QBLK);
+  hLine(map,7,88,99,BRICK); set(map,7,92,QBLK);
+  hLine(map,9,110,125,BRICK); set(map,9,114,QBLK); set(map,9,118,QBLK);
+  hLine(map,6,128,139,BRICK); set(map,6,131,QBLK); set(map,6,136,QBLK); set(map,6,140,QBLK);
+
+  // Final staircase
+  for(let i=0;i<8;i++) for(let j=0;j<=i;j++) set(map,13-j,170+i,STAIR);
+  for(let i=0;i<8;i++) for(let j=0;j<=7-i;j++) set(map,13-j,178+i,STAIR);
+
+  vLine(map,190,4,13,FLAGP);
+
+  const enemies = [
+    {type:'goomba',col:8,row:13},{type:'goomba',col:20,row:13},
+    {type:'koopa',col:38,row:13},{type:'goomba',col:50,row:13},
+    {type:'goomba',col:69,row:13},{type:'koopa',col:75,row:13},
+    {type:'goomba',col:90,row:13},{type:'goomba',col:108,row:13},
+    {type:'koopa',col:107,row:13},{type:'goomba',col:148,row:13},
+    {type:'goomba',col:155,row:13},{type:'koopa',col:162,row:13},
+    // Platform enemies
+    {type:'goomba',col:14,row:8},{type:'goomba',col:42,row:9},
+  ];
+
+  return {map, enemies, theme:1, width:W, qContents:buildQContents(map, [
+    {row:8,col:12,type:'mushroom'},{row:8,col:15,type:'coin'},
+    {row:6,col:27,type:'coin'},{row:6,col:30,type:'mushroom'},
+    {row:9,col:40,type:'coin'},{row:9,col:43,type:'coin'},{row:9,col:46,type:'coin'},
+    {row:10,col:75,type:'mushroom'},{row:10,col:79,type:'coin'},
+    {row:7,col:92,type:'coin'},{row:9,col:114,type:'coin'},
+    {row:9,col:118,type:'mushroom'},{row:6,col:131,type:'coin'},
+    {row:6,col:136,type:'coin'},{row:6,col:140,type:'coin'},
+  ])};
+}
+
+function level3() {
+  const W=220, map=mkMap(W);
+  vLine(map,W-1,0,14,HARD); // right boundary wall
+  hLine(map,13,0,W-1,GND); hLine(map,14,0,W-1,DIRT);
+
+  // Desert dunes (elevated ground)
+  hLine(map,11,15,25,HARD); hLine(map,12,15,25,HARD);
+  hLine(map,10,30,40,HARD); hLine(map,11,30,40,HARD); hLine(map,12,30,40,HARD);
+
+  // Gaps
+  hLine(map,13,50,54,AIR); hLine(map,14,50,54,AIR);
+  hLine(map,13,80,84,AIR); hLine(map,14,80,84,AIR);
+  hLine(map,13,120,124,AIR); hLine(map,14,120,124,AIR);
+  hLine(map,13,155,159,AIR); hLine(map,14,155,159,AIR);
+
+  // Pipes (desert oasis)
+  set(map,11,42,PIPE_T); set(map,12,42,PIPE_B); set(map,13,42,PIPE_B);
+  set(map,11,68,PIPE_T); set(map,12,68,PIPE_B); set(map,13,68,PIPE_B);
+  set(map,10,100,PIPE_T); vLine(map,100,11,13,PIPE_B);
+  set(map,11,142,PIPE_T); set(map,12,142,PIPE_B); set(map,13,142,PIPE_B);
+
+  // Question block clusters
+  hLine(map,9,20,24,QBLK);
+  hLine(map,8,58,62,QBLK);
+  set(map,8,75,QBLK); set(map,8,76,BRICK); set(map,8,77,QBLK); set(map,8,78,BRICK); set(map,8,79,QBLK);
+  hLine(map,7,90,96,BRICK); set(map,7,92,QBLK); set(map,7,94,QBLK);
+  hLine(map,9,108,115,BRICK); set(map,9,110,QBLK); set(map,9,113,QBLK);
+  hLine(map,8,130,137,BRICK); set(map,8,133,QBLK); set(map,8,135,QBLK);
+  hLine(map,7,165,172,BRICK); set(map,7,167,QBLK); set(map,7,170,QBLK);
+
+  // Coin rows
+  hLine(map,7,33,37,COIN_T); hLine(map,6,90,96,COIN_T); hLine(map,10,128,132,COIN_T);
+  hLine(map,11,163,168,COIN_T);
+
+  // Elevated platforms
+  hLine(map,10,57,65,HARD); hLine(map,9,72,78,HARD);
+
+  // Staircase end
+  for(let i=0;i<8;i++) for(let j=0;j<=i;j++) set(map,13-j,190+i,STAIR);
+  for(let i=0;i<8;i++) for(let j=0;j<=7-i;j++) set(map,13-j,198+i,STAIR);
+
+  vLine(map,210,4,13,FLAGP);
+
+  const enemies = [
+    {type:'goomba',col:10,row:13},{type:'goomba',col:14,row:13},
+    {type:'koopa',col:28,row:11},{type:'goomba',col:44,row:11},
+    {type:'goomba',col:56,row:13},{type:'koopa',col:58,row:13},
+    {type:'koopa',col:72,row:13},{type:'goomba',col:88,row:13},
+    {type:'goomba',col:96,row:13},{type:'koopa',col:107,row:13},
+    {type:'goomba',col:115,row:13},{type:'goomba',col:130,row:13},
+    {type:'koopa',col:145,row:13},{type:'goomba',col:163,row:13},
+    {type:'goomba',col:168,row:13},{type:'koopa',col:175,row:13},
+  ];
+
+  return {map, enemies, theme:2, width:W, qContents:buildQContents(map,[
+    {row:9,col:20,type:'coin'},{row:9,col:21,type:'coin'},{row:9,col:22,type:'mushroom'},{row:9,col:23,type:'coin'},{row:9,col:24,type:'coin'},
+    {row:8,col:58,type:'coin'},{row:8,col:60,type:'mushroom'},{row:8,col:62,type:'coin'},
+    {row:8,col:75,type:'coin'},{row:8,col:77,type:'mushroom'},{row:8,col:79,type:'coin'},
+    {row:7,col:92,type:'coin'},{row:7,col:94,type:'mushroom'},
+    {row:9,col:110,type:'coin'},{row:9,col:113,type:'coin'},
+    {row:8,col:133,type:'mushroom'},{row:8,col:135,type:'coin'},
+    {row:7,col:167,type:'coin'},{row:7,col:170,type:'mushroom'},
+  ])};
+}
+
+function level4() {
+  const W=210, map=mkMap(W);
+  vLine(map,W-1,0,14,HARD); // right boundary wall
+  hLine(map,13,0,W-1,ICE); hLine(map,14,0,W-1,ICE);
+
+  // Ice gaps
+  hLine(map,13,34,38,AIR); hLine(map,14,34,38,AIR);
+  hLine(map,13,65,69,AIR); hLine(map,14,65,69,AIR);
+  hLine(map,13,95,99,AIR); hLine(map,14,95,99,AIR);
+  hLine(map,13,130,134,AIR); hLine(map,14,130,134,AIR);
+  hLine(map,13,160,164,AIR); hLine(map,14,160,164,AIR);
+
+  // Ice platforms (slippery)
+  hLine(map,10,20,30,ICE); hLine(map,8,40,48,ICE); hLine(map,10,55,62,ICE);
+  hLine(map,7,72,82,ICE); hLine(map,9,88,93,ICE);
+  hLine(map,6,105,115,ICE); hLine(map,8,120,128,ICE);
+  hLine(map,7,140,150,ICE); hLine(map,9,157,158,ICE);
+
+  // Blocks
+  hLine(map,8,10,15,QBLK);
+  set(map,7,42,QBLK); set(map,7,43,BRICK); set(map,7,44,QBLK);
+  hLine(map,6,60,63,BRICK); set(map,6,62,QBLK); set(map,6,64,QBLK);
+  hLine(map,5,75,82,BRICK); set(map,5,77,QBLK); set(map,5,79,QBLK); set(map,5,81,QBLK);
+  hLine(map,7,104,110,BRICK); set(map,7,106,QBLK); set(map,7,108,QBLK);
+  hLine(map,6,122,128,BRICK); set(map,6,125,QBLK); set(map,6,128,QBLK);
+  hLine(map,5,144,152,BRICK); set(map,5,146,QBLK); set(map,5,149,QBLK); set(map,5,151,QBLK);
+
+  // Coins
+  hLine(map,9,25,29,COIN_T); hLine(map,7,43,47,COIN_T);
+  hLine(map,8,90,94,COIN_T); hLine(map,6,141,149,COIN_T);
+
+  // Ice spires (decorative hard blocks)
+  vLine(map,18,10,13,HARD); vLine(map,50,9,13,HARD); vLine(map,85,8,13,HARD);
+
+  // Staircase end
+  for(let i=0;i<8;i++) for(let j=0;j<=i;j++) set(map,13-j,180+i,STAIR);
+  for(let i=0;i<8;i++) for(let j=0;j<=7-i;j++) set(map,13-j,188+i,STAIR);
+
+  vLine(map,200,4,13,FLAGP);
+
+  const enemies = [
+    {type:'koopa',col:12,row:13},{type:'goomba',col:22,row:10},
+    {type:'koopa',col:40,row:8},{type:'goomba',col:56,row:10},
+    {type:'goomba',col:57,row:10},{type:'koopa',col:74,row:7},
+    {type:'goomba',col:90,row:9},{type:'koopa',col:107,row:13},
+    {type:'goomba',col:122,row:8},{type:'koopa',col:143,row:7},
+    {type:'goomba',col:144,row:7},{type:'goomba',col:170,row:13},
+  ];
+
+  return {map, enemies, theme:3, width:W, qContents:buildQContents(map,[
+    {row:8,col:10,type:'coin'},{row:8,col:11,type:'mushroom'},{row:8,col:12,type:'coin'},{row:8,col:13,type:'coin'},{row:8,col:14,type:'coin'},
+    {row:7,col:42,type:'coin'},{row:7,col:44,type:'mushroom'},
+    {row:6,col:62,type:'coin'},{row:6,col:64,type:'mushroom'},
+    {row:5,col:77,type:'coin'},{row:5,col:79,type:'mushroom'},{row:5,col:81,type:'coin'},
+    {row:7,col:106,type:'coin'},{row:7,col:108,type:'mushroom'},
+    {row:6,col:125,type:'mushroom'},{row:6,col:128,type:'coin'},
+    {row:5,col:146,type:'coin'},{row:5,col:149,type:'mushroom'},{row:5,col:151,type:'coin'},
+  ])};
+}
+
+function level5() {
+  const W=230, map=mkMap(W);
+  hLine(map,13,0,W-1,GND); hLine(map,14,0,W-1,DIRT);
+  vLine(map,W-1,0,14,HARD); // right boundary wall
+
+  // Lava pits
+  hLine(map,13,24,28,LAVA); hLine(map,14,24,28,LAVA);
+  hLine(map,13,50,54,LAVA); hLine(map,14,50,54,LAVA);
+  hLine(map,13,80,84,LAVA); hLine(map,14,80,84,LAVA);
+  hLine(map,13,115,119,LAVA); hLine(map,14,115,119,LAVA);
+  hLine(map,13,150,154,LAVA); hLine(map,14,150,154,LAVA);
+  hLine(map,13,185,189,LAVA); hLine(map,14,185,189,LAVA);
+
+  // Castle blocks
+  hLine(map,0,0,W-1,CASTLE); // top
+  hLine(map,1,0,W-1,CASTLE);
+  vLine(map,0,0,14,CASTLE); // left wall
+  vLine(map,1,0,14,CASTLE);
+
+  // Platforms over lava
+  hLine(map,10,26,29,CASTLE);
+  hLine(map,9,52,56,CASTLE);
+  hLine(map,10,60,63,CASTLE);
+  hLine(map,8,82,88,CASTLE);
+  hLine(map,7,117,123,CASTLE);
+  hLine(map,9,125,130,CASTLE);
+  hLine(map,8,152,160,CASTLE);
+  hLine(map,10,163,168,CASTLE);
+  hLine(map,7,186,193,CASTLE);
+
+  // Question block lines
+  hLine(map,8,15,22,QBLK);
+  set(map,7,40,QBLK); set(map,7,42,BRICK); set(map,7,44,QBLK);
+  hLine(map,7,66,74,QBLK);
+  hLine(map,6,95,104,BRICK); set(map,6,97,QBLK); set(map,6,100,QBLK); set(map,6,103,QBLK);
+  hLine(map,5,133,142,BRICK); set(map,5,135,QBLK); set(map,5,138,QBLK); set(map,5,141,QBLK);
+  hLine(map,6,168,178,BRICK); set(map,6,170,QBLK); set(map,6,173,QBLK); set(map,6,176,QBLK);
+
+  // Coin trails — all must be collected to open the gate
+  hLine(map,6,16,22,COIN_T);    // trail 1 (7 coins)
+  hLine(map,5,67,73,COIN_T);    // trail 2 (7 coins)
+  hLine(map,7,85,89,COIN_T);    // trail 3 (5 coins) — above lava platform
+  hLine(map,8,105,110,COIN_T);  // trail 4 (6 coins)
+  hLine(map,7,155,159,COIN_T);  // trail 5 (5 coins) — above lava platform
+  hLine(map,9,196,200,COIN_T);  // trail 6 (5 coins) — near the gate
+
+  // Castle towers (decorative)
+  for(let tx of [40,75,110,145,180]) {
+    set(map,4,tx,CASTLE); set(map,4,tx+1,CASTLE);
+    set(map,3,tx,CASTLE); set(map,3,tx+1,CASTLE);
+  }
+
+  // Pipes (out of walls, more decorative)
+  set(map,11,35,PIPE_T); vLine(map,35,12,13,PIPE_B);
+  set(map,11,65,PIPE_T); vLine(map,65,12,13,PIPE_B);
+  set(map,11,108,PIPE_T); vLine(map,108,12,13,PIPE_B);
+  set(map,11,143,PIPE_T); vLine(map,143,12,13,PIPE_B);
+
+  // Staircase near end
+  for(let i=0;i<8;i++) for(let j=0;j<=i;j++) set(map,13-j,200+i,STAIR);
+  for(let i=0;i<8;i++) for(let j=0;j<=7-i;j++) set(map,13-j,208+i,STAIR);
+
+  // Boss castle outer wall (right side)
+  hLine(map,3,219,W-1,CASTLE); hLine(map,2,219,W-1,CASTLE);
+  for(let yy=2;yy<=13;yy++) { set(map,yy,W-1,CASTLE); }
+
+  // COIN GATE — blocks entry to flag until all coins collected
+  for(let yy=2;yy<=13;yy++) { set(map,yy,215,GATE); }
+
+  vLine(map,220,4,13,FLAGP);
+
+  const enemies = [
+    {type:'goomba',col:10,row:13},{type:'koopa',col:15,row:13},
+    {type:'koopa',col:27,row:10},{type:'goomba',col:35,row:13},
+    {type:'koopa',col:41,row:13},{type:'goomba',col:52,row:9},
+    {type:'koopa',col:61,row:10},{type:'koopa',col:68,row:13},
+    {type:'goomba',col:82,row:8},{type:'goomba',col:86,row:8},
+    {type:'koopa',col:96,row:13},{type:'koopa',col:97,row:13},
+    {type:'goomba',col:118,row:7},{type:'koopa',col:126,row:9},
+    {type:'goomba',col:134,row:13},{type:'koopa',col:140,row:13},
+    {type:'goomba',col:154,row:8},{type:'goomba',col:158,row:8},
+    {type:'koopa',col:165,row:10},{type:'koopa',col:173,row:13},
+    {type:'goomba',col:187,row:7},{type:'koopa',col:190,row:7},
+  ];
+
+  return {map, enemies, theme:4, width:W, qContents:buildQContents(map,[
+    {row:8,col:15,type:'mushroom'},{row:8,col:16,type:'coin'},{row:8,col:17,type:'coin'},
+    {row:8,col:18,type:'mushroom'},{row:8,col:19,type:'coin'},{row:8,col:20,type:'coin'},{row:8,col:21,type:'mushroom'},
+    {row:7,col:40,type:'mushroom'},{row:7,col:44,type:'mushroom'},
+    {row:7,col:66,type:'coin'},{row:7,col:68,type:'mushroom'},{row:7,col:70,type:'coin'},{row:7,col:72,type:'mushroom'},{row:7,col:74,type:'coin'},
+    {row:6,col:97,type:'mushroom'},{row:6,col:100,type:'coin'},{row:6,col:103,type:'mushroom'},
+    {row:5,col:135,type:'mushroom'},{row:5,col:138,type:'coin'},{row:5,col:141,type:'mushroom'},
+    {row:6,col:170,type:'coin'},{row:6,col:173,type:'mushroom'},{row:6,col:176,type:'coin'},
+  ])};
+}
+
+function buildQContents(map, qList) {
+  const c={};
+  for(const q of qList) {
+    const k=`${q.row},${q.col}`;
+    c[k]=q.type;
+  }
+  return c;
+}
+
+// ─── PARTICLES ─────────────────────────────────────────
+const particles = [];
+function spawnParticles(x,y,color,n=6) {
+  for(let i=0;i<n;i++) {
+    const angle=Math.random()*Math.PI*2;
+    const speed=2+Math.random()*4;
+    particles.push({x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed-3,life:1,maxLife:1,color,size:4+Math.random()*4});
+  }
+}
+
+function updateParticles(dt) {
+  for(let i=particles.length-1;i>=0;i--) {
+    const p=particles[i];
+    p.x+=p.vx; p.y+=p.vy; p.vy+=0.2; p.life-=0.03;
+    if(p.life<=0) particles.splice(i,1);
+  }
+}
+
+function drawParticles(camX) {
+  for(const p of particles) {
+    ctx.globalAlpha=p.life;
+    ctx.fillStyle=p.color;
+    ctx.fillRect(p.x-camX-p.size/2,p.y-p.size/2,p.size,p.size);
+  }
+  ctx.globalAlpha=1;
+}
+
+// ─── FLOATING SCORES ───────────────────────────────────
+const floatTexts = [];
+function showScore(worldX, worldY, val, color='#FFF') {
+  // worldX is already in world space
+  floatTexts.push({wx:worldX, wy:worldY, val, color, life:1, vy:-1.5});
+}
+
+// ─── PLAYER ────────────────────────────────────────────
+function createPlayer(x,y) {
+  return {
+    x,y,vx:0,vy:0,w:24,h:32,
+    onGround:false,jumping:false,jumpHeld:0,
+    big:false,invincible:0,
+    facingRight:true,running:false,
+    walkFrame:0,walkTimer:0,
+    dead:false,deadTimer:0,
+    flagPole:false,flagY:0,
+  };
+}
+
+// ─── ENEMIES ───────────────────────────────────────────
+function spawnEnemies(enemyDefs, camX=0) {
+  return enemyDefs.map(e => ({
+    type: e.type,
+    x: e.col*T + T/2 - 12,
+    y: (e.row)*T - (e.type==='koopa'?8:0) - 32,
+    vx: -0.8,
+    vy: 0,
+    w: e.type==='koopa'?28:26,
+    h: e.type==='koopa'?36:28,
+    alive: true,
+    squished: false,
+    squishTimer: 0,
+    onGround: false,
+    walkFrame: 0,
+    walkTimer: 0,
+    shellMode: false,
+    shellSliding: false,
+    shellTimer: 0,
+  }));
+}
+
+// ─── SPAWNABLE ITEMS ───────────────────────────────────
+const spawnedItems = [];
+function spawnMushroom(x,y) {
+  spawnedItems.push({type:'mushroom',x,y,vx:1.5,vy:-2,w:24,h:24,active:true,rising:true,startY:y,targetY:y-T});
+}
+function spawnCoinAnim(x,y) {
+  spawnedItems.push({type:'coinanim',x,y,vy:-8,active:true,life:40});
+}
+
+// ─── FLAG POLE STATE ────────────────────────────────────
+let flagSlideY = 0, flagReached = false, flagDone = false;
+
+// ─── CAMERA ─────────────────────────────────────────────
+let camX = 0;
+
+// ─── TILE DRAWING ──────────────────────────────────────
+function drawTile(t, px, py, th) {
+  const c = ctx;
+  switch(t) {
+    case GND: {
+      c.fillStyle = th.gndTop; c.fillRect(px,py,T,T);
+      c.fillStyle = th.gndBody;
+      c.fillRect(px,py+8,T,T-8);
+      // Grid lines
+      c.strokeStyle='rgba(0,0,0,0.15)'; c.lineWidth=1;
+      for(let i=0;i<4;i++){c.beginPath();c.moveTo(px+i*8,py+8);c.lineTo(px+i*8,py+T);c.stroke();}
+      for(let i=1;i<3;i++){c.beginPath();c.moveTo(px,py+8+i*8);c.lineTo(px+T,py+8+i*8);c.stroke();}
+      break;
+    }
+    case DIRT: {
+      c.fillStyle = th.gndBody; c.fillRect(px,py,T,T);
+      c.strokeStyle='rgba(0,0,0,0.1)'; c.lineWidth=1;
+      for(let i=0;i<4;i++){c.beginPath();c.moveTo(px+i*8,py);c.lineTo(px+i*8,py+T);c.stroke();}
+      for(let i=0;i<4;i++){c.beginPath();c.moveTo(px,py+i*8);c.lineTo(px+T,py+i*8);c.stroke();}
+      break;
+    }
+    case BRICK: {
+      c.fillStyle=th.brick; c.fillRect(px,py,T,T);
+      c.fillStyle=th.brickD;
+      c.fillRect(px,py+14,T,2); c.fillRect(px,py+28,T,2);
+      c.fillRect(px+16,py,2,14); c.fillRect(px+8,py+16,2,12); c.fillRect(px+24,py+16,2,12);
+      c.fillStyle='rgba(255,255,255,0.2)'; c.fillRect(px+1,py+1,T-2,2);
+      break;
+    }
+    case QBLK: {
+      c.fillStyle=th.qblk; c.fillRect(px,py,T,T);
+      c.fillStyle=th.qblkD; c.fillRect(px,py+T-4,T,4); c.fillRect(px+T-4,py,4,T);
+      c.fillStyle='rgba(255,255,255,0.3)'; c.fillRect(px+1,py+1,4,4);
+      c.fillStyle='#000'; c.font='bold 18px monospace'; c.textAlign='center'; c.textBaseline='middle';
+      c.fillText('?',px+T/2,py+T/2+1);
+      break;
+    }
+    case QUSE: {
+      c.fillStyle='#999'; c.fillRect(px,py,T,T);
+      c.fillStyle='#777'; c.fillRect(px,py+T-4,T,4); c.fillRect(px+T-4,py,4,T);
+      c.fillStyle='rgba(255,255,255,0.1)'; c.fillRect(px+1,py+1,4,4);
+      break;
+    }
+    case PIPE_T: {
+      c.fillStyle=th.pipeD; c.fillRect(px,py,T,T);
+      c.fillStyle=th.pipe; c.fillRect(px+2,py+4,T-4,T-4);
+      c.fillStyle='rgba(255,255,255,0.25)'; c.fillRect(px+4,py+4,6,T-4);
+      c.fillRect(px+2,py+4,T-4,4);
+      c.fillStyle=th.pipeD; c.fillRect(px,py,T,4);
+      c.fillStyle=th.pipe; c.fillRect(px+1,py+1,T-2,3);
+      break;
+    }
+    case PIPE_B: {
+      c.fillStyle=th.pipeD; c.fillRect(px,py,T,T);
+      c.fillStyle=th.pipe; c.fillRect(px+2,py,T-4,T);
+      c.fillStyle='rgba(255,255,255,0.2)'; c.fillRect(px+4,py,6,T);
+      break;
+    }
+    case COIN_T: {
+      const cy=py+T/2, cx2=px+T/2;
+      const bob=Math.sin(Date.now()*0.005+cx2*0.1)*3;
+      c.fillStyle='#FFD700'; c.beginPath(); c.arc(cx2,cy+bob,8,0,Math.PI*2); c.fill();
+      c.fillStyle='#FFA500'; c.beginPath(); c.arc(cx2-2,cy+bob-2,3,0,Math.PI*2); c.fill();
+      c.fillStyle='#FFEC6E'; c.beginPath(); c.arc(cx2,cy+bob-2,2,0,Math.PI*2); c.fill();
+      break;
+    }
+    case FLAGP: {
+      // Just a thin pole - the visual flag is drawn separately in drawGameScene
+      c.fillStyle='#888'; c.fillRect(px+T/2-3,py,6,T);
+      c.fillStyle='#aaa'; c.fillRect(px+T/2-2,py,3,T);
+      break;
+    }
+    case HARD: {
+      c.fillStyle='#C8C8C8'; c.fillRect(px,py,T,T);
+      c.fillStyle='rgba(0,0,0,0.15)';
+      c.fillRect(px+T-4,py,4,T); c.fillRect(px,py+T-4,T,4);
+      c.fillStyle='rgba(255,255,255,0.3)'; c.fillRect(px,py,T,4); c.fillRect(px,py,4,T);
+      break;
+    }
+    case ICE: {
+      c.fillStyle='#CCEEFF'; c.fillRect(px,py,T,T);
+      c.fillStyle='rgba(255,255,255,0.5)'; c.fillRect(px,py,T,6);
+      c.strokeStyle='rgba(150,220,255,0.5)'; c.lineWidth=1;
+      c.beginPath(); c.moveTo(px+8,py); c.lineTo(px+8,py+T); c.stroke();
+      c.beginPath(); c.moveTo(px+16,py); c.lineTo(px+16,py+T); c.stroke();
+      c.beginPath(); c.moveTo(px+24,py); c.lineTo(px+24,py+T); c.stroke();
+      c.fillStyle='rgba(255,255,255,0.6)'; c.fillRect(px+4,py+2,4,2); c.fillRect(px+18,py+2,3,2);
+      break;
+    }
+    case CASTLE: {
+      c.fillStyle=th.castle||'#555'; c.fillRect(px,py,T,T);
+      c.fillStyle='rgba(0,0,0,0.2)'; c.fillRect(px+T-4,py,4,T); c.fillRect(px,py+T-4,T,4);
+      c.fillStyle='rgba(255,255,255,0.08)'; c.fillRect(px,py,T,4); c.fillRect(px,py,4,T);
+      break;
+    }
+    case STAIR: {
+      c.fillStyle=th.hard||'#BCAAA4'; c.fillRect(px,py,T,T);
+      c.fillStyle='rgba(0,0,0,0.2)'; c.fillRect(px+T-4,py,4,T); c.fillRect(px,py+T-4,T,4);
+      c.fillStyle='rgba(255,255,255,0.15)'; c.fillRect(px,py,T,4);
+      break;
+    }
+    case LAVA: {
+      const wave=Math.sin(Date.now()*0.003+px*0.05)*3;
+      const g2=c.createLinearGradient(px,py,px,py+T);
+      g2.addColorStop(0,'#FF6B00'); g2.addColorStop(0.5,'#FF2200'); g2.addColorStop(1,'#AA0000');
+      c.fillStyle=g2; c.fillRect(px,py+wave,T,T);
+      c.fillStyle='rgba(255,200,0,0.5)';
+      c.beginPath(); c.arc(px+8,py+6+wave,4,0,Math.PI*2); c.fill();
+      c.beginPath(); c.arc(px+22,py+8+wave,3,0,Math.PI*2); c.fill();
+      break;
+    }
+    case CLOUD_S: {
+      c.fillStyle='rgba(255,255,255,0.9)'; c.fillRect(px,py,T,T);
+      break;
+    }
+    case GATE: {
+      // Animated glowing gate bars
+      const flash = Math.sin(Date.now() * 0.006) * 0.5 + 0.5;
+      c.fillStyle = `rgba(200,40,0,${0.7 + flash * 0.3})`;
+      c.fillRect(px, py, T, T);
+      c.fillStyle = `rgba(255,${Math.floor(100 + flash * 155)},0,0.9)`;
+      c.fillRect(px + 2, py, 6, T);
+      c.fillRect(px + 12, py, 6, T);
+      c.fillRect(px + 22, py, 6, T);
+      c.fillStyle = 'rgba(255,255,100,0.5)';
+      c.fillRect(px + 3, py, 2, T);
+      c.fillRect(px + 13, py, 2, T);
+      c.fillRect(px + 23, py, 2, T);
+      break;
+    }
+  }
+}
+
+// ─── DRAW PLAYER ────────────────────────────────────────
+function drawPlayer(p, camX) {
+  const px = Math.round(p.x - camX);
+  const py = Math.round(p.y);
+  if (px < -40 || px > CW+40) return;
+
+  const c = ctx;
+  const big = p.big;
+  const w = 26;
+
+  if (p.invincible > 0 && Math.floor(p.invincible/3)%2===1) return;
+
+  const flip = !p.facingRight;
+  c.save();
+  if (flip) { c.translate(px + w, 0); c.scale(-1, 1); }
+  const bx = flip ? 0 : px;
+  const by = py;
+
+  const walkOff = (p.onGround && Math.abs(p.vx) > 0.4) ? Math.sin(p.walkTimer * 0.18) * 5 : 0;
+  const lOff = Math.round(walkOff);
+  // shorthand pixel block
+  const blk = (x,y,w2,h2,col) => { c.fillStyle=col; c.fillRect(bx+x, by+y, w2, h2); };
+
+  if (big) {
+    // ══ BIG MARIO — 26×48 ══
+
+    // --- Hat ---
+    blk( 3,  0, 20,  2, '#E52A00'); // crown top
+    blk( 1,  2, 24,  5, '#E52A00'); // crown body
+    blk(-1,  7, 28,  4, '#E52A00'); // wide brim
+    // hat highlight
+    blk( 3,  1,  8,  2, '#FF5533');
+    // hat shadow edge
+    blk(-1, 10, 28,  1, '#AA1800');
+
+    // --- Hair (brown, under brim) ---
+    blk( 0, 11,  5,  3, '#6B3A00');
+    blk(21, 11,  5,  3, '#6B3A00');
+
+    // --- Face ---
+    blk( 2, 11, 22, 11, '#FFCC88'); // face base
+    blk( 3, 12, 20,  9, '#FFCC88');
+    // subtle cheek shading
+    blk(19, 16,  4,  4, '#F0A878');
+
+    // --- Eyes (both clearly visible) ---
+    // left eye
+    blk( 5, 13,  4,  4, '#FFFFFF');
+    blk( 6, 14,  3,  3, '#2244AA');  // blue iris
+    blk( 7, 14,  2,  2, '#000000');  // pupil
+    blk( 6, 13,  2,  1, '#FFFFFF');  // highlight
+    // right eye
+    blk(16, 13,  4,  4, '#FFFFFF');
+    blk(17, 14,  3,  3, '#2244AA');
+    blk(18, 14,  2,  2, '#000000');
+    blk(17, 13,  2,  1, '#FFFFFF');
+
+    // --- Eyebrows (bushy, straight) ---
+    blk( 4, 12,  6,  2, '#4A2000');
+    blk(15, 12,  6,  2, '#4A2000');
+
+    // --- Nose (round, friendly) ---
+    blk(10, 17,  6,  4, '#F0A070');
+    blk( 9, 18,  8,  3, '#F0A070');
+    blk(10, 17,  3,  2, '#FFCC99'); // shine
+
+    // --- Mouth / smile line ---
+    blk( 8, 21,  2,  1, '#C87050');
+    blk(15, 21,  4,  1, '#C87050');
+
+    // --- Mustache (thick, two-part, iconic) ---
+    blk( 3, 19, 20,  3, '#4A2000'); // main bar
+    blk( 2, 17, 10,  4, '#4A2000'); // left poof
+    blk(13, 17,  9,  4, '#4A2000'); // right poof
+    // mustache sheen
+    blk( 3, 18,  5,  1, '#6B3A10');
+    blk(13, 18,  5,  1, '#6B3A10');
+
+    // --- Neck ---
+    blk( 9, 22,  8,  2, '#FFCC88');
+
+    // --- Red shirt ---
+    blk( 2, 22, 22,  5, '#E52A00');
+    blk( 3, 22,  8,  2, '#FF5533'); // highlight
+
+    // --- Overalls bib ---
+    blk( 5, 26, 16,  7, '#1A44BB');
+    blk( 6, 27, 14,  5, '#2255CC');
+    // buckles
+    blk( 6, 27,  3,  3, '#FFD700');
+    blk(17, 27,  3,  3, '#FFD700');
+    blk( 7, 28,  1,  1, '#FFF8A0');
+    blk(18, 28,  1,  1, '#FFF8A0');
+    // straps
+    blk( 5, 22,  4, 11, '#1A44BB');
+    blk(17, 22,  4, 11, '#1A44BB');
+
+    // --- Pants ---
+    blk( 1, 33, 24,  8, '#1A44BB');
+    blk( 2, 34, 22,  6, '#2255CC');
+
+    // --- Arms ---
+    blk(-3, 23,  6, 12, '#E52A00');
+    blk(23, 23,  6, 12, '#E52A00');
+    // gloves
+    blk(-4, 32,  8,  8, '#FFFFFF');
+    blk(-3, 33,  6,  6, '#EEEEEE');
+    blk(-2, 37,  3,  2, '#CCCCCC');
+    blk(22, 32,  8,  8, '#FFFFFF');
+    blk(23, 33,  6,  6, '#EEEEEE');
+    blk(25, 37,  3,  2, '#CCCCCC');
+
+    // --- Legs ---
+    blk( 1, 41, 11, 6 + Math.max(0,lOff), '#2255CC');
+    blk(14, 41, 11, 6 - Math.min(0,lOff), '#2255CC');
+    blk( 2, 42,  9, 4 + Math.max(0,lOff), '#1A44BB');
+    blk(15, 42,  9, 4 - Math.min(0,lOff), '#1A44BB');
+
+    // --- Shoes ---
+    const s1y = 46 + Math.max(0,lOff);
+    const s2y = 46 - Math.min(0,lOff);
+    blk(-1, s1y, 14,  5, '#3B1A00');
+    blk( 0, s1y, 12,  4, '#5C3200');
+    blk( 1, s1y,  5,  2, '#7A4A10');
+    blk(13, s2y, 14,  5, '#3B1A00');
+    blk(14, s2y, 12,  4, '#5C3200');
+    blk(14, s2y,  5,  2, '#7A4A10');
+
+  } else {
+    // ══ SMALL MARIO — 26×32 ══
+
+    // --- Hat ---
+    blk( 4,  0, 18,  2, '#E52A00');
+    blk( 2,  2, 22,  4, '#E52A00');
+    blk(-1,  6, 28,  3, '#E52A00'); // brim
+    blk( 4,  1,  7,  2, '#FF5533'); // highlight
+    blk(-1,  8, 28,  1, '#AA1800');
+
+    // --- Hair ---
+    blk( 0,  9,  4,  2, '#6B3A00');
+    blk(22,  9,  4,  2, '#6B3A00');
+
+    // --- Face ---
+    blk( 2,  9, 22,  9, '#FFCC88');
+    blk(18, 13,  4,  3, '#F0A878'); // cheek
+
+    // --- Eyes ---
+    // left
+    blk( 5, 10,  4,  4, '#FFFFFF');
+    blk( 6, 11,  3,  3, '#2244AA');
+    blk( 7, 11,  2,  2, '#000000');
+    blk( 6, 10,  2,  1, '#FFFFFF');
+    // right
+    blk(16, 10,  4,  4, '#FFFFFF');
+    blk(17, 11,  3,  3, '#2244AA');
+    blk(18, 11,  2,  2, '#000000');
+    blk(17, 10,  2,  1, '#FFFFFF');
+
+    // --- Eyebrows ---
+    blk( 4,  9,  5,  2, '#4A2000');
+    blk(16,  9,  5,  2, '#4A2000');
+
+    // --- Nose ---
+    blk(10, 14,  6,  3, '#F0A070');
+    blk( 9, 15,  8,  2, '#F0A070');
+    blk(10, 14,  3,  1, '#FFCC99');
+
+    // --- Mustache (thick iconic two-poof) ---
+    blk( 3, 17, 20,  2, '#4A2000'); // bar
+    blk( 2, 15,  9,  3, '#4A2000'); // left poof
+    blk(13, 15,  9,  3, '#4A2000'); // right poof
+    blk( 3, 16,  4,  1, '#6B3A10');
+    blk(14, 16,  4,  1, '#6B3A10');
+
+    // --- Red shirt ---
+    blk( 2, 17, 22,  4, '#E52A00');
+    blk( 3, 17,  7,  2, '#FF5533');
+
+    // --- Overalls bib ---
+    blk( 5, 20, 16,  5, '#1A44BB');
+    blk( 6, 21, 14,  3, '#2255CC');
+    blk( 6, 21,  3,  2, '#FFD700');
+    blk(17, 21,  3,  2, '#FFD700');
+    // straps
+    blk( 5, 17,  3,  8, '#1A44BB');
+    blk(18, 17,  3,  8, '#1A44BB');
+
+    // --- Pants ---
+    blk( 1, 25, 24,  4, '#2255CC');
+
+    // --- Arms ---
+    blk(-3, 18,  5,  8, '#E52A00');
+    blk(24, 18,  5,  8, '#E52A00');
+    blk(-3, 24,  6,  5, '#FFFFFF');
+    blk(23, 24,  6,  5, '#FFFFFF');
+
+    // --- Legs ---
+    blk( 2, 29, 10, 3 + Math.max(0,lOff), '#2255CC');
+    blk(14, 29, 10, 3 - Math.min(0,lOff), '#2255CC');
+
+    // --- Shoes ---
+    const s1y = 31 + Math.max(0,lOff);
+    const s2y = 31 - Math.min(0,lOff);
+    blk(-1, s1y, 14,  4, '#3B1A00');
+    blk( 0, s1y, 12,  3, '#5C3200');
+    blk( 1, s1y,  4,  1, '#7A4A10');
+    blk(13, s2y, 14,  4, '#3B1A00');
+    blk(14, s2y, 12,  3, '#5C3200');
+    blk(14, s2y,  4,  1, '#7A4A10');
+  }
+
+  c.restore();
+}
+
+
+// ─── DRAW ENEMY ─────────────────────────────────────────
+function drawEnemy(e, camX) {
+  const px = Math.round(e.x - camX);
+  const py = Math.round(e.y);
+  if (px < -60 || px > CW+60 || !e.alive) return;
+
+  const c = ctx;
+  const wf = Math.floor(e.walkTimer/8)%2;
+
+  if (e.type === 'goomba') {
+    if (e.squished) {
+      // Squished goomba
+      c.fillStyle='#7B3800'; c.fillRect(px, py+e.h-10, e.w, 10);
+      c.fillStyle='#5C2800'; c.fillRect(px+2, py+e.h-8, e.w-4, 8);
+      return;
+    }
+    // Body
+    c.fillStyle='#7B3800'; c.beginPath(); c.arc(px+e.w/2, py+e.h/2+2, e.w/2-1, 0, Math.PI*2); c.fill();
+    c.fillStyle='#5C2800'; c.beginPath(); c.arc(px+e.w/2, py+e.h/2+2, e.w/2-3, 0, Math.PI*2); c.fill();
+    // Feet
+    c.fillStyle='#3B1800';
+    c.fillRect(px + (wf===0?0:4), py+e.h-8, 10, 8);
+    c.fillRect(px+e.w-14+(wf===0?4:0), py+e.h-8, 10, 8);
+    // Eyes
+    c.fillStyle='#FFCC99'; c.fillRect(px+3, py+4, 8, 8); c.fillRect(px+e.w-11, py+4, 8, 8);
+    c.fillStyle='#000'; c.fillRect(px+5, py+6, 4, 4); c.fillRect(px+e.w-9, py+6, 4, 4);
+    // Angry brows
+    c.fillStyle='#000';
+    c.beginPath(); c.moveTo(px+3,py+3); c.lineTo(px+11,py+6); c.lineWidth=2; c.strokeStyle='#000'; c.stroke();
+    c.beginPath(); c.moveTo(px+e.w-3,py+3); c.lineTo(px+e.w-11,py+6); c.stroke();
+    // Fangs
+    c.fillStyle='#FFF'; c.fillRect(px+6, py+e.h-8, 3, 4); c.fillRect(px+e.w-9, py+e.h-8, 3, 4);
+  } else {
+    // Koopa
+    if (e.shellMode) {
+      c.fillStyle='#2ECC40'; c.fillRect(px, py+e.h-20, e.w, 20);
+      c.fillStyle='#27AE36';
+      c.fillRect(px+4, py+e.h-16, e.w-8, 12);
+      c.fillStyle='#FFF'; c.fillRect(px+8, py+e.h-12, e.w-16, 4);
+      return;
+    }
+    // Shell
+    c.fillStyle='#2ECC40'; c.beginPath(); c.arc(px+e.w/2, py+e.h/2+2, e.w/2, 0, Math.PI*2); c.fill();
+    c.fillStyle='#27AE36';
+    c.beginPath(); c.arc(px+e.w/2, py+e.h/2+2, e.w/2-4, 0, Math.PI*2); c.fill();
+    // Shell pattern
+    c.strokeStyle='rgba(0,0,0,0.2)'; c.lineWidth=2;
+    for(let i=0;i<3;i++) {
+      c.beginPath(); c.arc(px+e.w/2, py+e.h/2+2, (i+1)*6, 0, Math.PI*2); c.stroke();
+    }
+    // Head (yellow-orange)
+    c.fillStyle='#FFCC00'; c.beginPath(); c.arc(px+e.w/2+4, py+6, 10, 0, Math.PI*2); c.fill();
+    c.fillStyle='#000'; c.fillRect(px+e.w/2+7, py+4, 3, 4);
+    c.fillStyle='#FFFFFF'; c.fillRect(px+e.w/2+8, py+4, 2, 2);
+    // Feet
+    c.fillStyle='#FFCC00';
+    c.fillRect(px+(wf===0?0:4), py+e.h-8, 8, 8);
+    c.fillRect(px+e.w-12+(wf===0?4:0), py+e.h-8, 8, 8);
+  }
+}
+
+// ─── DRAW BACKGROUND ────────────────────────────────────
+function drawBackground(th, camX, levelWidth) {
+  const c = ctx;
+  // Sky gradient
+  const grd = c.createLinearGradient(0,0,0,CH);
+  grd.addColorStop(0, th.skyA); grd.addColorStop(1, th.skyB);
+  c.fillStyle = grd; c.fillRect(0,0,CW,CH);
+
+  const scroll1 = camX * 0.3;
+  const scroll2 = camX * 0.5;
+
+  if (th.snow) {
+    // Snow particles
+    c.fillStyle='rgba(255,255,255,0.7)';
+    for(let i=0;i<40;i++) {
+      const sx=((i*137+scroll1)%(levelWidth*T))*(CW/(levelWidth*T));
+      const sy=(i*97)%CH;
+      c.fillRect(sx%CW, sy, 3, 3);
+    }
+  }
+
+  if (th.lava) {
+    // Glowing lava background
+    for(let i=0;i<5;i++) {
+      const bx=((i*200)-scroll2%200+CW)%CW;
+      const g2=c.createRadialGradient(bx,CH,0,bx,CH,120);
+      g2.addColorStop(0,'rgba(255,100,0,0.3)');
+      g2.addColorStop(1,'rgba(0,0,0,0)');
+      c.fillStyle=g2; c.fillRect(0,0,CW,CH);
+    }
+  }
+
+  if (th.skyA.includes('5C94') || th.skyA.includes('B3E5') || th.skyA.includes('FFB3')) {
+    // Clouds
+    const cloudPositions = [200,450,800,1150,1600,2100,2600];
+    c.fillStyle = 'rgba(255,255,255,0.9)';
+    for(const cp of cloudPositions) {
+      const cx = (cp - scroll1) % (levelWidth*T);
+      const cy = 60 + (cp%3)*30;
+      if (cx > -120 && cx < CW+120) {
+        drawCloud(cx, cy);
+      }
+    }
+  }
+
+  if (!th.lava && !th.snow) {
+    // Hills
+    c.fillStyle = 'rgba(0,0,0,0.08)';
+    for(let i=0;i<6;i++) {
+      const hx=(i*300-scroll2*0.4+300)%((levelWidth*T)*0.3+300) - 50;
+      c.beginPath();
+      c.arc(hx%CW, CH-20, 80, Math.PI, 0);
+      c.fill();
+    }
+  }
+}
+
+function drawCloud(x, y) {
+  const c = ctx;
+  c.beginPath();
+  c.arc(x, y, 25, 0, Math.PI*2);
+  c.arc(x+35, y-10, 32, 0, Math.PI*2);
+  c.arc(x+70, y, 25, 0, Math.PI*2);
+  c.arc(x+20, y+10, 25, 0, Math.PI*2);
+  c.arc(x+50, y+10, 25, 0, Math.PI*2);
+  c.fill();
+}
+
+// ─── COLLISION HELPERS ──────────────────────────────────
+function getTile(map, col, row) {
+  if (row<0||col<0||col>=map[0].length) return AIR; if (row>=map.length) return AIR;
+  return map[row][col];
+}
+
+function getTileAt(map, wx, wy) {
+  return getTile(map, Math.floor(wx/T), Math.floor(wy/T));
+}
+
+function isSolidAt(map, wx, wy) {
+  return solid(getTileAt(map, wx, wy));
+}
+
+// ─── MAIN GAME OBJECT ───────────────────────────────────
+const game = {
+  state: 'title',
+  level: 0,
+  score: 0,
+  coins: 0,
+  lives: 3,
+  time: 400,
+  timeAccum: 0,
+  bgmActive: false,
+  levelData: null,
+  player: null,
+  enemies: [],
+  items: [...spawnedItems],
+  flagY: 0,
+  flagSlideStartY: 0,
+  flagDone: false,
+  levelClearTimer: 0,
+  playerDeadTimer: 0,
+  titleBlink: 0,
+  levelCoinsCollected: 0,
+  coinGateRequired: 0,
+  coinGateOpen: false,
+  coinGateMsg: 0,  // timer for flash message
+  levelStartMsg: 0,
+};
+
+function startLevel(idx, resetLives=false) {
+  game.level = idx;
+  if (resetLives) game.lives = 3;
+  game.levelData = buildLevel(idx);
+  game.player = createPlayer(2*T, 11*T);
+  game.enemies = spawnEnemies(game.levelData.enemies);
+  spawnedItems.length = 0;
+  particles.length = 0;
+  floatTexts.length = 0;
+  camX = 0;
+  game.time = 400;
+  game.timeAccum = 0;
+  game.flagDone = false;
+  game.flagY = 0;
+  game.flagSlideStartY = 0;
+  game.levelCoinsCollected = 0;
+  game.coinGateOpen = false;
+  game.coinGateMsg = 0;
+  game.levelStartMsg = (idx === 4) ? 300 : 0; // show hint for 5s on level 5
+  // Count all COIN_T tiles on this level for the gate requirement
+  if (idx === 4) {
+    let total = 0;
+    const m = game.levelData.map;
+    for (let r = 0; r < m.length; r++)
+      for (let c = 0; c < m[r].length; c++)
+        if (m[r][c] === COIN_T) total++;
+    game.coinGateRequired = total;
+  } else {
+    game.coinGateRequired = 0;
+  }
+  game.levelClearTimer = 0;
+  game.bgmActive = true;
+  bgmIdx = 0; bgmTimer = 0;
+  updateHUD();
+}
+
+function updateHUD() {
+  document.getElementById('hScore').textContent = String(game.score).padStart(6,'0');
+  document.getElementById('hCoins').textContent = '×' + String(game.coins).padStart(2,'0');
+  document.getElementById('hWorld').textContent = THEMES[game.level]?.name || `${game.level+1}-1`;
+  document.getElementById('hTime').textContent = game.time;
+  document.getElementById('hLives').textContent = '♥ ' + game.lives;
+}
+
+// ─── PHYSICS & UPDATE ───────────────────────────────────
+function updatePlayer(p, map, dt) {
+  if (p.dead) { p.y += p.vy; p.vy += 0.35; return; }
+  if (p.flagPole) {
+    // Slide Mario down the pole
+    p.y += 3;
+    const groundY = 13 * T - p.h;
+    if (p.y >= groundY) {
+      p.y = groundY;
+      p.flagPole = false;
+      game.flagDone = true;
+      game.levelClearTimer = 180; // delay before next level
+      sfx('clear');
+    }
+    return;
+  }
+
+  const th = THEMES[game.level];
+  const slip = th.slip || 1;
+
+  // Horizontal movement
+  const maxSpd = p.running ? 5 : 3;
+  const accel = p.onGround ? 0.5 : 0.3;
+
+  p.running = RUN();
+  if (LEFT()) { p.vx -= accel; p.facingRight = false; }
+  else if (RIGHT()) { p.vx += accel; p.facingRight = true; }
+  else {
+    if (p.onGround) p.vx *= (slip < 1 ? slip : 0.8);
+    else p.vx *= 0.95;
+  }
+  p.vx = Math.max(-maxSpd, Math.min(maxSpd, p.vx));
+
+  // Jump
+  if (JUMP() && p.onGround) {
+    p.vy = p.big ? -13 : -12;
+    p.onGround = false;
+    p.jumpHeld = 0;
+    sfx('jump');
+  }
+  if (JUMP_H() && !p.onGround && p.vy < 0) {
+    p.jumpHeld++;
+    if (p.jumpHeld < 14) p.vy -= 0.3;
+  } else if (!JUMP_H()) { p.jumpHeld = 20; }
+
+  // Gravity
+  p.vy += 0.5;
+  p.vy = Math.min(p.vy, 14);
+
+  // Walk animation
+  if (p.onGround && Math.abs(p.vx)>0.5) { p.walkTimer++; }
+  else { p.walkTimer=0; }
+
+  // Invincibility countdown
+  if (p.invincible > 0) p.invincible--;
+
+  // Move X
+  p.x += p.vx;
+  // Clamp to level
+  if (p.x < 0) { p.x=0; p.vx=0; }
+
+  // Check X collisions
+  const col = (wx,wy) => { const t=getTileAt(map,wx,wy); return solid(t)?t:0; };
+  const hw = p.w/2, pxc=p.x+hw;
+
+  if (p.vx > 0) {
+    const right = p.x+p.w;
+    const tc = Math.floor(right/T);
+    for(const ry of [p.y+4, p.y+p.h-4]) {
+      const tr = Math.floor(ry/T);
+      if (solid(getTile(map,tc,tr))) { p.x=tc*T-p.w; p.vx=0; sfx('bump'); break; }
+    }
+  } else if (p.vx < 0) {
+    const tc = Math.floor(p.x/T);
+    for(const ry of [p.y+4, p.y+p.h-4]) {
+      const tr = Math.floor(ry/T);
+      if (solid(getTile(map,tc,tr))) { p.x=(tc+1)*T; p.vx=0; sfx('bump'); break; }
+    }
+  }
+
+  // Move Y
+  p.y += p.vy;
+  p.onGround = false;
+
+  // Check Y collisions
+  if (p.vy > 0) {
+    // Falling - check feet
+    const footY = p.y + p.h;
+    const row = Math.floor(footY/T);
+    for(const rx of [p.x+3, p.x+p.w/2, p.x+p.w-3]) {
+      const tc2 = Math.floor(rx/T);
+      const t = getTile(map, tc2, row);
+      if (solid(t)) {
+        p.y = row*T - p.h;
+        p.vy = 0;
+        p.onGround = true;
+        // Deadly?
+        if (deadly(t)) playerDie(p);
+        break;
+      }
+    }
+  } else if (p.vy < 0) {
+    // Rising - check head
+    const headY = p.y;
+    const row = Math.floor(headY/T);
+    for(const rx of [p.x+4, p.x+p.w-4]) {
+      const tc2 = Math.floor(rx/T);
+      const t = getTile(map, tc2, row);
+      if (solid(t)) {
+        p.y = (row+1)*T;
+        p.vy = 0;
+        // Hit block from below
+        hitBlock(map, tc2, row, p);
+        break;
+      }
+    }
+  }
+
+  // Check lava below
+  {
+    const footY = p.y + p.h + 1;
+    const row = Math.floor(footY/T);
+    for(const rx of [p.x+4, p.x+p.w-4]) {
+      const tc2=Math.floor(rx/T);
+      if (deadly(getTile(map,tc2,row))) { playerDie(p); break; }
+    }
+  }
+
+  // Check coins in path
+  checkCoinPickup(p, map);
+
+  // Check enemy collisions
+  checkEnemyCollisions(p);
+
+  // Check flag pole
+  checkFlagPole(p, map);
+
+  // Fall off world
+  if (p.y > CH+64) playerDie(p);
+}
+
+function hitBlock(map, col, row, p) {
+  const t = getTile(map, col, row);
+  if (t === QBLK) {
+    map[row][col] = QUSE;
+    sfx('coin');
+    const key = `${row},${col}`;
+    const content = game.levelData.qContents[key] || 'coin';
+    if (content === 'mushroom' && !p.big) {
+      spawnMushroom(col*T, (row-1)*T);
+      sfx('powerup');
+    } else {
+      game.coins++;
+      game.score += 200;
+      spawnCoinAnim(col*T+T/2, row*T);
+      showScore(col*T, row*T-8, '+200', '#FFD700');
+    }
+    updateHUD();
+  } else if (t === BRICK) {
+    if (p.big) {
+      // Break brick
+      map[row][col] = AIR;
+      spawnParticles(col*T+T/2, row*T+T/2, '#E53935', 8);
+      sfx('break');
+      game.score += 50;
+    } else {
+      sfx('bump');
+      // Bump animation would go here
+    }
+  }
+}
+
+function checkCoinPickup(p, map) {
+  const coins_to_check = [
+    [p.x+4, p.y+4], [p.x+p.w-4, p.y+4],
+    [p.x+p.w/2, p.y+p.h/2], [p.x+p.w/2, p.y+p.h-4],
+  ];
+  for(const [wx,wy] of coins_to_check) {
+    const col=Math.floor(wx/T), row=Math.floor(wy/T);
+    if (getTile(map,col,row)===COIN_T) {
+      map[row][col]=AIR;
+      game.coins++;
+      game.score+=100;
+      if (game.coinGateRequired > 0) game.levelCoinsCollected++;
+      spawnCoinAnim(wx, wy);
+      sfx('coin');
+      updateHUD();
+      // Open the gate when all level-5 coins collected
+      if (game.coinGateRequired > 0 && !game.coinGateOpen &&
+          game.levelCoinsCollected >= game.coinGateRequired) {
+        game.coinGateOpen = true;
+        game.coinGateMsg = 200;
+        // Remove all GATE tiles from the map
+        const gmap = game.levelData.map;
+        for (let gr = 0; gr < gmap.length; gr++)
+          for (let gc = 0; gc < gmap[gr].length; gc++)
+            if (gmap[gr][gc] === GATE) gmap[gr][gc] = AIR;
+        sfx('clear');
+      }
+    }
+  }
+}
+
+function checkEnemyCollisions(p) {
+  if (p.invincible > 0) return;
+  for(const e of game.enemies) {
+    if (!e.alive || e.squished) continue;
+    // AABB overlap
+    if (p.x+p.w-4 > e.x && p.x+4 < e.x+e.w && p.y+p.h > e.y+4 && p.y < e.y+e.h) {
+      // Stomp from above?
+      const stomping = p.vy > 0 && p.y+p.h < e.y+e.h*0.6;
+      if (stomping) {
+        // Kill enemy
+        if (e.type==='koopa' && !e.shellMode) {
+          e.shellMode = true;
+          e.vx = 0;
+          e.squishTimer = 200;
+          sfx('stomp');
+        } else if (e.shellMode && e.vx===0) {
+          e.vx = p.facingRight ? 6 : -6;
+          e.shellSliding = true;
+          sfx('stomp');
+        } else {
+          e.squished = true;
+          e.squishTimer = 30;
+          sfx('stomp');
+        }
+        p.vy = p.running ? -10 : -8;
+        game.score += 100;
+        showScore(e.x, e.y-10, '+100');
+        updateHUD();
+      } else {
+        // Player takes damage
+        if (p.big) {
+          p.big = false;
+          p.h = 32;
+          p.invincible = 120;
+          sfx('powerup');
+        } else {
+          playerDie(p);
+        }
+      }
+    }
+  }
+}
+
+function getFlagPoleCol() {
+  const map = game.levelData.map;
+  for(let c=0;c<map[0].length;c++) {
+    for(let r=0;r<map.length;r++) {
+      if(getTile(map,c,r)===FLAGP) return c;
+    }
+  }
+  return -1;
+}
+
+function checkFlagPole(p, map) {
+  if (game.flagDone || game.flagPole) return;
+  const poleCol = getFlagPoleCol();
+  if (poleCol < 0) return;
+  const poleWorldX = poleCol * T;
+  // Mario's hitbox overlaps the pole column at all?
+  if (p.x + p.w > poleWorldX && p.x < poleWorldX + T) {
+    p.flagPole = true;
+    p.vx = 0;
+    p.vy = 0;
+    game.bgmActive = false;
+    sfx('flagpole');
+    const heightBonus = Math.max(0, Math.floor((12*T - p.y) / T)) * 100;
+    game.score += Math.max(500, heightBonus);
+    updateHUD();
+  }
+}
+
+function playerDie(p) {
+  if (p.invincible > 0 || p.dead || p.flagPole) return;
+  p.dead = true;
+  p.vy = -12;
+  p.vx = 0;
+  game.bgmActive = false;
+  sfx('die');
+  game.state = 'dead';
+  game.playerDeadTimer = 160;
+}
+
+function updateEnemies(map) {
+  for(const e of game.enemies) {
+    if (!e.alive) continue;
+    if (e.squished) { e.squishTimer--; if(e.squishTimer<=0) e.alive=false; continue; }
+    if (e.shellMode && !e.shellSliding) { e.shellTimer++; if(e.shellTimer>180){e.shellMode=false; e.shellTimer=0;} continue; }
+
+    // Gravity
+    e.vy += 0.5;
+    e.vy = Math.min(e.vy, 14);
+
+    // Move
+    e.x += e.vx;
+    e.y += e.vy;
+    e.walkTimer++;
+
+    // Floor collision
+    const footRow = Math.floor((e.y+e.h)/T);
+    for(const rx of [e.x+4, e.x+e.w-4]) {
+      const tc=Math.floor(rx/T);
+      const t=getTile(map,tc,footRow);
+      if(solid(t)) { e.y=footRow*T-e.h; e.vy=0; e.onGround=true; break; }
+    }
+
+    // Wall collision - flip direction
+    if (e.vx > 0) {
+      const tc=Math.floor((e.x+e.w)/T);
+      for(const ry of [e.y+4, e.y+e.h-4]) {
+        if(solid(getTile(map,tc,Math.floor(ry/T)))) { e.vx=-Math.abs(e.vx); break; }
+      }
+    } else {
+      const tc=Math.floor(e.x/T);
+      for(const ry of [e.y+4, e.y+e.h-4]) {
+        if(solid(getTile(map,tc,Math.floor(ry/T)))) { e.vx=Math.abs(e.vx); break; }
+      }
+    }
+
+    // Fall off edge
+    if (e.onGround && !e.shellSliding) {
+      const aheadX = e.vx>0 ? e.x+e.w+2 : e.x-2;
+      const aheadRow = Math.floor((e.y+e.h+2)/T);
+      const aheadCol = Math.floor(aheadX/T);
+      if (!solid(getTile(map,aheadCol,aheadRow))) { e.vx=-e.vx; }
+    }
+
+    // Enemy vs shell
+    if (e.shellSliding) {
+      for(const other of game.enemies) {
+        if (other===e||!other.alive||other.squished) continue;
+        if (e.x+e.w>other.x && e.x<other.x+other.w && e.y+e.h>other.y && e.y<other.y+other.h) {
+          other.squished=true; other.squishTimer=30;
+          game.score+=100; updateHUD();
+        }
+      }
+    }
+
+    // Off screen cleanup
+    if (e.y > CH+100) e.alive=false;
+  }
+}
+
+function updateItems(map) {
+  for(const item of spawnedItems) {
+    if (!item.active) continue;
+    if (item.type==='coinanim') {
+      item.y += item.vy; item.vy += 0.4; item.life--;
+      if (item.life<=0) item.active=false;
+      continue;
+    }
+    if (item.type==='mushroom') {
+      if (item.rising) {
+        item.y -= 1.5;
+        if (item.y <= item.targetY) { item.rising=false; }
+        continue;
+      }
+      item.vy += 0.4; item.y += item.vy; item.x += item.vx;
+      // Floor
+      const fr=Math.floor((item.y+item.h)/T);
+      for(const rx of [item.x+2,item.x+item.w-2]) {
+        const tc=Math.floor(rx/T);
+        if(solid(getTile(map,tc,fr))) { item.y=fr*T-item.h; item.vy=0; break; }
+      }
+      // Walls
+      if(item.vx>0&&solid(getTile(map,Math.floor((item.x+item.w)/T),Math.floor((item.y+item.h/2)/T)))) item.vx=-item.vx;
+      if(item.vx<0&&solid(getTile(map,Math.floor(item.x/T),Math.floor((item.y+item.h/2)/T)))) item.vx=-item.vx;
+
+      // Pickup
+      const p=game.player;
+      if(p&&!p.dead&&!p.flagPole&&item.x+item.w>p.x&&item.x<p.x+p.w&&item.y+item.h>p.y&&item.y<p.y+p.h) {
+        if(!p.big) {
+          p.big=true; p.h=48; p.y-=16;
+          sfx('powerup'); game.score+=1000;
+          showScore(item.x,item.y-20,'+1000','#FF0');
+          updateHUD();
+        }
+        item.active=false;
+      }
+    }
+  }
+}
+
+// ─── MAIN GAME LOOP ─────────────────────────────────────
+let lastTime = 0;
+function loop(ts) {
+  const dt = Math.min(ts - lastTime, 50);
+  lastTime = ts;
+
+  updateBGM(dt);
+
+  ctx.clearRect(0,0,CW,CH);
+
+  if (game.state === 'title') {
+    drawTitle();
+    if (START_K()) {
+      ensureAudio();
+      sfx('enter');
+      game.score=0; game.coins=0;
+      game.state='playing';
+      startLevel(0, true);
+    }
+  } else if (game.state === 'playing') {
+    updateGame(dt);
+  } else if (game.state === 'dead') {
+    game.playerDeadTimer--;
+    updateGame(dt);
+    if (game.playerDeadTimer <= 0) {
+      game.lives--;
+      updateHUD();
+      if (game.lives <= 0) {
+        game.state = 'gameover'; // out of lives → game over
+      } else {
+        startLevel(game.level, false); // still has lives → retry same level
+        game.state = 'playing';
+      }
+    }
+  } else if (game.state === 'levelclear') {
+    game.levelClearTimer--;
+    drawGameScene();
+    drawLevelClear();
+    if (game.levelClearTimer <= 0) {
+      if (game.level >= 4) {
+        game.state = 'win';
+      } else {
+        game.level++;
+        startLevel(game.level, true);
+        game.state='playing';
+      }
+    }
+  } else if (game.state === 'gameover') {
+    drawGameOver();
+    if (START_K()) { game.score=0; game.coins=0; game.state='playing'; startLevel(0, true); }
+  } else if (game.state === 'win') {
+    drawWin();
+    if (START_K()) { game.score=0; game.coins=0; game.state='playing'; startLevel(0, true); }
+  }
+
+  clearJustPressed();
+  requestAnimationFrame(loop);
+}
+
+function updateGame(dt) {
+  const ld = game.levelData;
+  if (!ld) return;
+
+  updatePlayer(game.player, ld.map, dt);
+
+  if (game.state==='playing') {
+    updateEnemies(ld.map);
+    updateItems(ld.map);
+    updateParticles(dt);
+
+    // Timer
+    game.timeAccum += dt;
+    if (game.timeAccum >= 400) {
+      game.timeAccum = 0;
+      game.time = Math.max(0, game.time-1);
+      updateHUD();
+      if (game.time <= 0) playerDie(game.player);
+    }
+
+    // Camera
+    const targetCam = game.player.x - CW*0.35;
+    camX = Math.max(0, Math.min(targetCam, (ld.width-26)*T));
+    camX += (targetCam - camX) * 0; // snap
+    camX = Math.max(0, Math.min(Math.floor(targetCam), (ld.width-26)*T));
+
+    // Level clear
+    if (game.flagDone && game.levelClearTimer > 0) {
+      game.levelClearTimer--;
+      if (game.levelClearTimer <= 0) {
+        game.state = 'levelclear';
+      }
+    }
+  } else {
+    updateParticles(dt);
+  }
+
+  drawGameScene();
+
+  // Float texts
+  for(let i=floatTexts.length-1;i>=0;i--) {
+    const ft=floatTexts[i];
+    ft.wy+=ft.vy; ft.life-=0.02;
+    ctx.globalAlpha=ft.life;
+    ctx.fillStyle=ft.color||'#FFF';
+    ctx.font='bold 12px monospace';
+    ctx.textAlign='center';
+    ctx.fillText(ft.val, ft.wx-camX, ft.wy);
+    ctx.globalAlpha=1;
+    if(ft.life<=0) floatTexts.splice(i,1);
+  }
+
+  // ── Level 5 start hint ──
+  if (game.levelStartMsg > 0) {
+    game.levelStartMsg--;
+    const a = Math.min(1, game.levelStartMsg / 40);
+    ctx.save();
+    ctx.globalAlpha = a;
+    ctx.fillStyle = 'rgba(0,0,0,0.7)';
+    ctx.fillRect(CW/2 - 220, CH/2 - 100, 440, 80);
+    ctx.strokeStyle = '#FF4400';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(CW/2 - 220, CH/2 - 100, 440, 80);
+    ctx.fillStyle = '#FF6600';
+    ctx.font = 'bold 13px "Press Start 2P", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('⚠  FINAL CASTLE  ⚠', CW/2, CH/2 - 72);
+    ctx.fillStyle = '#FFD700';
+    ctx.font = '9px "Press Start 2P", monospace';
+    ctx.fillText('COLLECT ALL COINS TO OPEN THE GATE', CW/2, CH/2 - 50);
+    ctx.fillStyle = '#FFF';
+    ctx.fillText('AND REACH THE FLAG!', CW/2, CH/2 - 34);
+    ctx.restore();
+  }
+
+  // ── Coin Gate HUD (Level 5 only) ──
+  if (game.coinGateRequired > 0 && game.state === 'playing') {
+    ctx.save();
+    const pct = game.levelCoinsCollected / game.coinGateRequired;
+    const panelW = 260, panelH = 44;
+    const panelX = Math.floor(CW / 2 - panelW / 2);
+    const panelY = 6;
+
+    // Panel shadow
+    ctx.fillStyle = 'rgba(0,0,0,0.5)';
+    ctx.fillRect(panelX + 3, panelY + 3, panelW, panelH);
+    // Panel bg
+    ctx.fillStyle = '#1a0a00';
+    ctx.fillRect(panelX, panelY, panelW, panelH);
+    // Gold border (double line)
+    ctx.strokeStyle = '#FFD700'; ctx.lineWidth = 2;
+    ctx.strokeRect(panelX, panelY, panelW, panelH);
+    ctx.strokeStyle = 'rgba(255,215,0,0.25)'; ctx.lineWidth = 1;
+    ctx.strokeRect(panelX + 3, panelY + 3, panelW - 6, panelH - 6);
+
+    if (!game.coinGateOpen) {
+      // Coin icon
+      const cx = panelX + 16, cy = panelY + 14;
+      ctx.fillStyle = '#b8860b'; ctx.beginPath(); ctx.arc(cx, cy, 7, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#FFD700'; ctx.beginPath(); ctx.arc(cx-1, cy-1, 7, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#ffe566'; ctx.beginPath(); ctx.arc(cx-2, cy-2, 3, 0, Math.PI*2); ctx.fill();
+      // Label
+      ctx.fillStyle = '#FFD700'; ctx.font = '7px "Press Start 2P", monospace'; ctx.textAlign = 'left';
+      ctx.fillText('COLLECT ALL COINS', panelX + 28, panelY + 13);
+      // Count (right side)
+      ctx.fillStyle = '#fff'; ctx.font = '8px "Press Start 2P", monospace'; ctx.textAlign = 'right';
+      ctx.fillText(game.levelCoinsCollected + ' / ' + game.coinGateRequired, panelX + panelW - 8, panelY + 13);
+      // Progress bar track
+      const bx = panelX + 8, by = panelY + 22, bw = panelW - 16, bh = 12;
+      ctx.fillStyle = '#0d0500'; ctx.fillRect(bx, by, bw, bh);
+      const fw = Math.floor(bw * pct);
+      if (fw > 0) {
+        ctx.fillStyle = pct >= 1 ? '#44FF44' : pct > 0.6 ? '#FFD700' : '#FF9900';
+        ctx.fillRect(bx, by, fw, bh);
+        // Highlight stripe
+        ctx.fillStyle = 'rgba(255,255,255,0.3)';
+        ctx.fillRect(bx, by, fw, Math.floor(bh * 0.4));
+        // Tick marks every 25%
+        ctx.fillStyle = 'rgba(0,0,0,0.4)';
+        for (let t = 1; t < 4; t++) ctx.fillRect(bx + Math.floor(bw * t / 4), by, 1, bh);
+      }
+      ctx.strokeStyle = '#FFD700'; ctx.lineWidth = 1;
+      ctx.strokeRect(bx, by, bw, bh);
+    } else {
+      // Gate open celebration
+      ctx.fillStyle = '#44FF44'; ctx.font = '8px "Press Start 2P", monospace'; ctx.textAlign = 'center';
+      ctx.fillText('★ GATE OPEN!', CW / 2, panelY + 17);
+      ctx.fillStyle = '#fff'; ctx.font = '7px "Press Start 2P", monospace';
+      ctx.fillText('REACH THE FLAG!', CW / 2, panelY + 33);
+    }
+    ctx.restore();
+  }
+
+  // ── Gate open flash message ──
+  if (game.coinGateMsg > 0) {
+    game.coinGateMsg--;
+    const alpha = Math.min(1, game.coinGateMsg / 30);
+    const scale = 1 + (1 - alpha) * 0.3;
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.translate(CW / 2, CH / 2 - 60);
+    ctx.scale(scale, scale);
+    ctx.fillStyle = '#000';
+    ctx.fillRect(-160, -22, 320, 44);
+    ctx.strokeStyle = '#FFD700';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(-160, -22, 320, 44);
+    ctx.fillStyle = '#FFD700';
+    ctx.font = 'bold 18px "Press Start 2P", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('GATE OPEN!', 0, -4);
+    ctx.fillStyle = '#FFF';
+    ctx.font = '9px "Press Start 2P", monospace';
+    ctx.fillText('REACH THE FLAG!', 0, 14);
+    ctx.restore();
+  }
+
+  if (game.state==='dead') {
+    ctx.fillStyle='rgba(0,0,0,0.45)';
+    ctx.fillRect(0,0,CW,CH);
+    ctx.fillStyle='#FF4444';
+    ctx.font='bold 24px "Press Start 2P", monospace';
+    ctx.textAlign='center';
+    // Dark overlay with red vignette
+    const vig = ctx.createRadialGradient(CW/2,CH/2,60,CW/2,CH/2,320);
+    vig.addColorStop(0,'rgba(180,0,0,0)');
+    vig.addColorStop(1,'rgba(180,0,0,0.35)');
+    ctx.fillStyle=vig; ctx.fillRect(0,0,CW,CH);
+
+    // Panel
+    const px2=CW/2-160, py2=CH/2-80;
+    ctx.fillStyle='rgba(20,0,0,0.88)';
+    ctx.strokeStyle='#CC2200';
+    ctx.lineWidth=3;
+    ctx.beginPath();
+    ctx.roundRect ? ctx.roundRect(px2,py2,320,160,10) : ctx.rect(px2,py2,320,160);
+    ctx.fill(); ctx.stroke();
+
+    // Inner border
+    ctx.strokeStyle='rgba(255,80,0,0.3)';
+    ctx.lineWidth=1;
+    ctx.beginPath();
+    ctx.roundRect ? ctx.roundRect(px2+4,py2+4,312,152,8) : ctx.rect(px2+4,py2+4,312,152);
+    ctx.stroke();
+
+    // Title
+    ctx.fillStyle='#FF3322';
+    ctx.font='bold 20px "Press Start 2P", monospace';
+    ctx.textAlign='center';
+    ctx.shadowColor='#FF0000'; ctx.shadowBlur=12;
+    ctx.fillText('OH NO!', CW/2, CH/2-42);
+    ctx.shadowBlur=0;
+
+    // Divider
+    ctx.strokeStyle='rgba(200,50,0,0.5)';
+    ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(px2+20,CH/2-24); ctx.lineTo(px2+300,CH/2-24); ctx.stroke();
+
+    // Lives remaining
+    const livesLeft = game.lives - 1;
+    ctx.fillStyle='#FFD700';
+    ctx.font='11px "Press Start 2P", monospace';
+    ctx.fillText('LIVES REMAINING', CW/2, CH/2-8);
+
+    // Heart icons
+    const heartCount = Math.max(0, livesLeft);
+    const startX = CW/2 - (3*28)/2 + 10;
+    for(let i=0;i<3;i++){
+      ctx.fillStyle = i < heartCount ? '#FF2244' : 'rgba(255,255,255,0.2)';
+      ctx.font='22px serif';
+      ctx.fillText('♥', startX + i*28, CH/2+22);
+    }
+
+    // Life count text
+    if(livesLeft > 0){
+      ctx.fillStyle='#FFFFFF';
+      ctx.font='9px "Press Start 2P", monospace';
+      ctx.fillText(livesLeft + (livesLeft===1?' LIFE LEFT':'  LIVES LEFT'), CW/2, CH/2+44);
+    } else {
+      ctx.fillStyle='#FF6644';
+      ctx.font='9px "Press Start 2P", monospace';
+      ctx.fillText('GAME OVER...', CW/2, CH/2+44);
+    }
+  }
+}
+
+function drawGameScene() {
+  const ld = game.levelData;
+  if (!ld) return;
+  const th = THEMES[game.level];
+
+  drawBackground(th, camX, ld.width);
+
+  // Draw tiles
+  const startCol = Math.floor(camX/T);
+  const endCol = Math.min(startCol+27, ld.width);
+  for(let row=0;row<15;row++) {
+    for(let col=startCol;col<endCol;col++) {
+      const t=ld.map[row][col];
+      if(t!==AIR) drawTile(t, col*T-camX, row*T, th);
+    }
+  }
+
+  // Draw flag pole
+  const poleCol = getFlagPoleCol();
+  if (poleCol >= 0) {
+    const fx = poleCol * T - camX;
+    if (fx > -60 && fx < CW + 60) {
+      const poleTopY = 4 * T;
+      const poleBottomY = 13 * T;
+      // Pole shaft
+      ctx.fillStyle = '#888888';
+      ctx.fillRect(fx + T/2 - 2, poleTopY, 6, poleBottomY - poleTopY);
+      ctx.fillStyle = '#AAAAAA';
+      ctx.fillRect(fx + T/2 - 1, poleTopY, 3, poleBottomY - poleTopY);
+      // Golden ball on top
+      ctx.fillStyle = '#FFD700';
+      ctx.beginPath();
+      ctx.arc(fx + T/2 + 1, poleTopY, 9, 0, Math.PI*2);
+      ctx.fill();
+      ctx.fillStyle = '#FFF8A0';
+      ctx.beginPath();
+      ctx.arc(fx + T/2 - 1, poleTopY - 2, 4, 0, Math.PI*2);
+      ctx.fill();
+      // Flag (slides down when Mario touches it)
+      let flagY;
+      if (game.flagPole || game.flagDone) {
+        const slideTarget = 11 * T;
+        flagY = game.player.y + 4;
+        if (game.flagDone) flagY = slideTarget;
+        flagY = Math.min(flagY, slideTarget);
+      } else {
+        flagY = poleTopY + 2;
+      }
+      // Flag body
+      ctx.fillStyle = '#E52A00';
+      ctx.fillRect(fx + T/2 + 3, flagY, 24, 18);
+      // Flag stripe
+      ctx.fillStyle = '#FF6644';
+      ctx.fillRect(fx + T/2 + 3, flagY + 2, 24, 6);
+      // Flag star
+      ctx.fillStyle = '#FFD700';
+      ctx.font = 'bold 12px serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('★', fx + T/2 + 9, flagY + 14);
+    }
+  }
+
+
+  // Draw items
+  for(const item of spawnedItems) {
+    if(!item.active) continue;
+    if(item.type==='mushroom') {
+      const ix = Math.round(item.x - camX);
+      const iy = Math.round(item.y);
+      const c2 = ctx;
+      // Shadow
+      c2.fillStyle='rgba(0,0,0,0.2)';
+      c2.beginPath(); c2.ellipse(ix+12,iy+24,10,3,0,0,Math.PI*2); c2.fill();
+      // Stem
+      c2.fillStyle='#F5E6C8';
+      c2.fillRect(ix+5, iy+14, 14, 10);
+      c2.fillStyle='#E8D4A0';
+      c2.fillRect(ix+6, iy+15, 12, 8);
+      // Stem highlight
+      c2.fillStyle='#FFF8E0';
+      c2.fillRect(ix+7, iy+15, 4, 6);
+      // Stem outline sides
+      c2.fillStyle='#C8A870';
+      c2.fillRect(ix+5, iy+14, 2, 10);
+      c2.fillRect(ix+17, iy+14, 2, 10);
+      // Cap base (red semicircle using rect + rounded)
+      c2.fillStyle='#CC1100';
+      c2.fillRect(ix+1, iy+13, 22, 4);
+      // Cap dome
+      c2.fillStyle='#E52A00';
+      c2.beginPath();
+      c2.arc(ix+12, iy+13, 12, Math.PI, 0);
+      c2.fill();
+      // Cap highlight (lighter red top)
+      c2.fillStyle='#FF4422';
+      c2.beginPath();
+      c2.arc(ix+12, iy+13, 10, Math.PI+0.3, -0.3);
+      c2.fill();
+      // White spots — 3 spots
+      // Centre spot
+      c2.fillStyle='#FFFFFF';
+      c2.beginPath(); c2.arc(ix+12, iy+7, 4, 0, Math.PI*2); c2.fill();
+      c2.fillStyle='#F0F0F0';
+      c2.beginPath(); c2.arc(ix+12, iy+7, 3, 0, Math.PI*2); c2.fill();
+      // Left spot
+      c2.fillStyle='#FFFFFF';
+      c2.beginPath(); c2.arc(ix+4, iy+12, 3, 0, Math.PI*2); c2.fill();
+      // Right spot
+      c2.beginPath(); c2.arc(ix+20, iy+12, 3, 0, Math.PI*2); c2.fill();
+      // Spot highlights
+      c2.fillStyle='rgba(255,255,255,0.7)';
+      c2.beginPath(); c2.arc(ix+11, iy+6, 1.5, 0, Math.PI*2); c2.fill();
+      // Cap outline shadow
+      c2.strokeStyle='rgba(0,0,0,0.3)';
+      c2.lineWidth=1;
+      c2.beginPath();
+      c2.arc(ix+12, iy+13, 12, Math.PI, 0);
+      c2.stroke();
+    } else if(item.type==='coinanim') {
+      ctx.fillStyle='#FFD700'; ctx.beginPath();
+      ctx.arc(item.x-camX, item.y, 8, 0, Math.PI*2); ctx.fill();
+    }
+  }
+
+  // Draw enemies
+  for(const e of game.enemies) drawEnemy(e, camX);
+
+  // Draw player
+  drawPlayer(game.player, camX);
+
+  // Particles
+  drawParticles(camX);
+}
+
+function drawTitle() {
+  // Background
+  const g = ctx.createLinearGradient(0,0,0,CH);
+  g.addColorStop(0,'#1a1a4a'); g.addColorStop(1,'#0a0a20');
+  ctx.fillStyle=g; ctx.fillRect(0,0,CW,CH);
+
+  // Stars
+  ctx.fillStyle='rgba(255,255,255,0.7)';
+  for(let i=0;i<80;i++) {
+    const sx=(i*137)%CW, sy=(i*97)%CH;
+    ctx.fillRect(sx,sy,2,2);
+  }
+
+  // Title text
+  ctx.shadowColor='#FF6600'; ctx.shadowBlur=20;
+  ctx.fillStyle='#FFD700';
+  ctx.font='bold 48px "Press Start 2P", monospace';
+  ctx.textAlign='center';
+  ctx.fillText('SUPER MARIO', CW/2, 140);
+  ctx.fillStyle='#FF4400';
+  ctx.fillText('SPECIAL QUEST', CW/2, 200);
+  ctx.shadowBlur=0;
+
+  // Subtitle
+  ctx.fillStyle='#88CCFF';
+  ctx.font='16px "Press Start 2P", monospace';
+  ctx.fillText('5 WORLDS OF ADVENTURE', CW/2, 260);
+
+  // Blinking start
+  game.titleBlink++;
+  if (Math.floor(game.titleBlink/30)%2===0) {
+    ctx.fillStyle='#FFFFFF';
+    ctx.font='14px "Press Start 2P", monospace';
+    ctx.fillText('PRESS ENTER TO START', CW/2, 330);
+  }
+
+  // Mini player preview
+  const tp = createPlayer(CW/2-12, 380);
+  tp.facingRight=true; tp.onGround=true;
+  drawPlayer(tp, 0);
+
+  // Controls hint
+  ctx.fillStyle='#666';
+  ctx.font='9px "Press Start 2P", monospace';
+  ctx.fillText('← → MOVE  |  Z / SPACE JUMP  |  X / SHIFT RUN', CW/2, 450);
+}
+
+function drawLevelClear() {
+  ctx.fillStyle='rgba(0,0,0,0.5)';
+  ctx.fillRect(0,0,CW,CH);
+  ctx.fillStyle='#FFD700';
+  ctx.font='bold 28px "Press Start 2P", monospace';
+  ctx.textAlign='center';
+  ctx.fillText('COURSE CLEAR!', CW/2, 200);
+  ctx.fillStyle='#FFF';
+  ctx.font='14px "Press Start 2P", monospace';
+  ctx.fillText('SCORE  ' + String(game.score).padStart(6,'0'), CW/2, 260);
+  if (game.level < 4) {
+    ctx.fillStyle='#88FF88';
+    ctx.font='12px "Press Start 2P", monospace';
+    ctx.fillText('GET READY FOR ' + THEMES[game.level+1]?.name, CW/2, 310);
+  }
+}
+
+function drawGameOver() {
+  const g=ctx.createLinearGradient(0,0,0,CH);
+  g.addColorStop(0,'#0a0000'); g.addColorStop(1,'#200000');
+  ctx.fillStyle=g; ctx.fillRect(0,0,CW,CH);
+
+  ctx.fillStyle='#FF2222';
+  ctx.font='bold 40px "Press Start 2P", monospace';
+  ctx.textAlign='center';
+  ctx.fillText('GAME OVER', CW/2, 200);
+  ctx.fillStyle='#FFF';
+  ctx.font='14px "Press Start 2P", monospace';
+  ctx.fillText('FINAL SCORE: ' + String(game.score).padStart(6,'0'), CW/2, 270);
+  ctx.fillStyle='#AAAAAA';
+  ctx.font='11px "Press Start 2P", monospace';
+  ctx.fillText('PRESS ENTER TO TRY AGAIN', CW/2, 330);
+}
+
+function drawWin() {
+  const g=ctx.createLinearGradient(0,0,0,CH);
+  g.addColorStop(0,'#000820'); g.addColorStop(1,'#001040');
+  ctx.fillStyle=g; ctx.fillRect(0,0,CW,CH);
+
+  // Stars
+  ctx.fillStyle='rgba(255,255,255,0.8)';
+  for(let i=0;i<100;i++) ctx.fillRect((i*137)%CW, (i*97)%CH, 2, 2);
+
+  ctx.shadowColor='#FFD700'; ctx.shadowBlur=30;
+  ctx.fillStyle='#FFD700';
+  ctx.font='bold 36px "Press Start 2P", monospace';
+  ctx.textAlign='center';
+  ctx.fillText('YOU WIN!', CW/2, 160);
+  ctx.shadowBlur=0;
+
+  ctx.fillStyle='#FFFFFF';
+  ctx.font='16px "Press Start 2P", monospace';
+  ctx.fillText('CONGRATULATIONS!', CW/2, 220);
+
+  ctx.fillStyle='#88FFCC';
+  ctx.font='13px "Press Start 2P", monospace';
+  ctx.fillText('FINAL SCORE: ' + String(game.score).padStart(6,'0'), CW/2, 270);
+  ctx.fillText('WORLDS CLEARED: 5/5', CW/2, 310);
+
+  if (Math.floor(Date.now()/500)%2===0) {
+    ctx.fillStyle='#FFF';
+    ctx.font='11px "Press Start 2P", monospace';
+    ctx.fillText('PRESS ENTER TO PLAY AGAIN', CW/2, 380);
+  }
+}
+
+// ─── KICK OFF ───────────────────────────────────────────
+requestAnimationFrame(ts => { lastTime=ts; requestAnimationFrame(loop); });
+</script>
+</body>
+</html>
